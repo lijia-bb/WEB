@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-text="str"> <!-- {{str}} --></div>
+       <div v-html="str2"> <!-- {{str2}} --></div>
+    </div>
+    
+    <script>
+       let app= new Vue({
+            //固定语法
+            el:"#app",/* 捕获元素 */
+            data:{/* 文本数据 */
+                str:"hello word",
+                str2:"<h1>你好</h1>"
+            }
+        })
+        console.log(app);
+        app.str="vip2"/* 可以在外部随意更改 */
+    </script>
+</body>
+</html>

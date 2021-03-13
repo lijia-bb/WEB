@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let arr=new Array();/* Array为构造函数 */
+        // let arr =[]
+        // console.log(arr);
+
+
+        //定义构造函数
+        // function Test(sName){
+        //     this.sName=sName
+        //     this.school="黑大"
+        //     this.speak=function(){
+        //         console.log("hello")
+        //     }
+        // }
+
+        // let test1=new Test("小明")
+        // let test2=new  Test()
+        // console.log(test1.school)
+        // test1.speak()
+        // test2.speak()
+        // console.log(test1.sName)
+
+        let foo=(sName) =>{
+            this.sName=sName,
+            this.school="heida"
+        }
+        let foo2=new Foo("小刚")/* 箭头函数不能当作构造函数 */
+    </script>    
+</body>
+</html>

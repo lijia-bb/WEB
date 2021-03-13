@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var sum=0
+        var a=[]
+        for(i=0;i<40;i++)
+        {
+            if(i<2)
+            {
+                a[i]=1
+               
+
+            }
+            else{
+            a[i]=a[i-1]+a[i-2]
+           
+            }
+            
+            
+        }
+        for(i=(a.length-1);i>=0;i--){/* revserce倒序 */
+        document.write(a[i]+"&nbsp")
+        if(i%6==0)
+        document.write("<br />")
+        }/* 也可以采用a.reverse倒叙 */
+
+    </script>
+</body>
+</html>

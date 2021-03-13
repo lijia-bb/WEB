@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+   <style>
+       .test{
+           width: 400px;
+           height: 400px;
+           background-color: pink;
+       }
+       .test2{
+           width: 300px;
+           height: 300px;
+           background-color: yellow;
+       }
+       .test3{
+           width: 200px;
+           height: 200px;
+           background-color: gray;
+       }
+   </style>
+</head>
+<body>
+    <div class="test">
+        <div class="test2">
+            <div class="test3"></div>
+        </div>
+    </div>
+    <script>
+        $(".test").click(function(){
+            console.log("test");
+        })
+        $(".test2").click(function(){
+            console.log("test2");
+        })
+        $(".test3").click(function(e){
+            console.log("test3");
+            // e.stopPropagation()/* 阻止事件冒泡 */
+        })
+        setTimeout(function(){
+            $(".test3").trigger("click")/* 自动触发该事件 可以触发事件冒泡*/
+            $(".test3").triggerHandler("click")/* 自动触发事件 不能触发事件冒泡 */
+        },2000)
+    </script>
+</body>
+</html>

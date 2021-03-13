@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+        }
+        .big{
+            width: 400px;
+        }
+        .fir{
+            height: 200px;
+        }
+        .second{
+            height: 104px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div style="border: 1px solid black;height: 250px;width: 300px;">
+        <div id="fir" class="big">
+            <img id ="ii" src="image\狗.jpg" alt=""> 
+        </div>
+        <div id="second" class="big">
+            <img  src="image\草莓.jpg" alt="a">
+            <img src="image\狗.jpg" alt="b">
+            <img src="image\狮子.jpg" alt="c">
+        </div>
+        <script>
+            var SE=document.getElementById("second")
+            var oDiv=SE.getElementsByTagName("img")
+            var oFir=document.getElementById("ii")
+            console.log(oDiv)
+            oDiv[0].onmouseover=function (){
+                var ob=this.getAttribute("src")
+              oFir.setAttribute=("src",ob)
+              console.log(oFir.setAttribute)
+           
+               
+            }
+            oDiv[1].onmouseover=function (){
+                oFir.setAttribute=("src","image\草莓.jpg")
+
+            }
+            oDiv[2].onmouseover=function (){
+               
+                var ob=this.getAttribute("src")
+              oFir.setAttribute=("src",ob)
+              console.log(oFir)
+
+            }
+        </script>
+    </div>
+</body>
+</html>

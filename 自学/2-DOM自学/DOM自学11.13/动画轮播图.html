@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style:none;
+        }
+        #box{
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #imgbox{
+            position: relative;
+            width: 1200px;
+            height: 200px;
+        }
+        .mbox img{
+            width:100%;
+            height: 100%;
+            /* position: absolute; */
+            
+        }
+        .mbox{
+            float: left;
+            width: 300px;
+            height: 200px;
+            position: relative;
+            
+            /* position:fixed;
+            left: 20%; */
+            /* position: absolute; */
+        }
+        .middle{
+            position: absolute;
+            margin: 0 auto;
+            top: 0;
+            width: 300px;
+            height: 200px;
+            z-index: 101;
+            overflow: hidden;
+            
+        }
+        #Lmiddle{
+            float: left;
+            position: absolute;
+        }
+        #Rmiddle{
+            float: right;
+           
+        }
+        #Rmiddle li{
+            float: left;
+            text-align: center;
+            line-height: 20px;
+            width: 20px;
+            height: 20px; 
+            margin-left: 5px;
+            border-radius: 10px;
+            background-color:orange;
+            color: white;
+        }
+        #Lmiddle li{
+            float: left;
+            text-align: center;
+            line-height: 20px;
+            width: 20px;
+            height: 20px; 
+            margin-left: 5px;
+            border-radius: 10px;
+            background-color:orange;
+            color: white;
+        }
+        .bottom{
+            width: 300px;
+            height: 20px;
+            position:absolute;
+            bottom: 1px;
+            left: 0px;
+        }
+        #Rmiddle .active {
+            background-color:red;
+           
+        }
+      
+        
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="imgbox">
+            <div class="mbox" >
+                <img  src="image/狗.jpg" alt="">
+            </div>
+            <div class="mbox">
+                <img src="image/狮子.jpg" alt="">
+            </div>
+            <div class="mbox">
+                <img src="image/草莓.jpg" alt="">
+            </div>
+           
+        </div>
+        
+        <div class="middle"> 
+            <div class="bottom">
+                <div id="Lmiddle">
+                    <ul>
+                        <li>  &lt;</li>
+                        <li> &gt; </li>
+                    </ul>
+                </div>
+                <div id="Rmiddle">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+               </div>
+            </div>
+            
+        </div>
+        <div>
+
+        </div>
+    </div>
+    <script>
+        var oL=document.getElementById("Lmiddle").getElementsByTagName("li");
+        var oM=document.getElementsByClassName("middle")[0]
+        var mbox=document.getElementsByClassName("mbox")
+      
+        console.log(mbox)
+        var imgbox=document.getElementById("imgbox")
+        var oR=document.getElementById("Rmiddle").getElementsByTagName("li")
+        var nowIndex=0;
+        
+        var tim=null
+        // setInterval(function (){
+          
+        //     imgbox.style.left=(imgbox.offsetLeft-2)+"px";
+        //     console.log(imgbox.offsetLeft)
+        // }
+        // ,1000)
+        function changeImg(index){
+            clearInterval(tim)
+            
+            if(nowIndex>index)
+            {   
+                for(j=0;j<oR.length;j++)
+                {
+                    oR[j].classList.remove("active")
+                }
+                if(index==-1)
+                {
+                    oR[2].classList.add("active")
+                }
+                else
+                {
+                    oR[index].classList.add("active") 
+                }
+                     tim=setInterval(function (){
+                        imgbox.style.left=(imgbox.offsetLeft+1)+"px";
+                        
+                        if(-index*300==imgbox.offsetLeft)
+                        {
+                            clearInterval(tim)
+                           
+                        if(index==-1)
+                        {
+                            imgbox.style.left=-900
+                            nowIndex=2
+                        }
+                        else
+                        {
+                            nowIndex=index
+                        }
+                        }
+                        },5)
+                    
+                
+            }
+            else if(nowIndex==index)
+            {
+                imgbox.style.left=imgbox.offsetLeft+"px"
+            }
+            else if(nowIndex<index){
+                
+                for(j=0;j<oR.length;j++)
+                {
+                    oR[j].classList.remove("active")
+                }
+                if(index==3)
+                {
+                    oR[0].classList.add("active")
+                }
+                else
+                {
+                    oR[index].classList.add("active")
+                }
+                    tim=setInterval(function (){
+                    //     if(imgbox.offsetLeft==(-index*300))
+                    // {
+                    //     clearInterval(tim)
+                    // }
+                  
+                    if(imgbox.offsetLeft==(-index*300))
+                    {
+                        clearInterval(tim)
+                        if(index==3)
+                        {
+                            imgbox.style.left=0
+                            nowIndex=0
+                        }
+                        else
+                        {
+                            nowIndex=index
+                        }
+                        
+                    }
+                    imgbox.style.left=(imgbox.offsetLeft-1)+"px";
+                    // if(imgbox.offsetLeft==(-index*300)||imgbox.offsetLeft==0||imgbox.offsetLeft==900)
+                    // {
+                    //     clearInterval(tim)
+                    // }
+                    },5)
+                   
+            }
+          
+            
+        }
+        for(i=0;i<oR.length;i++){
+            oR[i].index=i;
+            oR[i].onclick =function () 
+            {
+                // tim=setInterval(function (){
+                // imgbox.style.left=(imgbox.offsetLeft-10)+"px";
+                // // console.log(this.index)
+                // if(mbox[0].offsetLeft==0)
+                // {
+                //     console.log(mbox[0].offsetLeft=0)
+                // clearInterval(tim)
+                // }
+                // },100)
+                for(i=0;i<oR.length;i++)
+                {
+                    oR[i].classList.remove("active")
+                }
+                
+                this.classList.add("active")
+               
+                changeImg(this.index);
+            }
+        }
+        oL[0].onclick = function(){
+            if(nowIndex-1==-1)
+            {
+                imgbox.style.left=-900+"px"
+                nowIndex = 3
+                changeImg(2)
+            }
+            else
+            {
+            changeImg(nowIndex-1)
+            }
+        }
+        oL[1].onclick = function(){
+            
+            if(nowIndex+1==3)
+            {
+                imgbox.style.left=0
+                nowIndex=0
+                for(j=0;j<oR.length;j++)
+                {
+                    oR[j].classList.remove("active")
+                }
+                oR[0].classList.add("active")
+            }
+            
+            else{
+            changeImg(nowIndex+1)
+            }
+           
+        }
+        // setInterval(function (){
+        //     if(nowIndex+1>=3)
+        //     {
+        //         changeImg(0)
+        //     }
+        //     else{
+        //     changeImg(nowIndex+1)
+        //     }
+        // },2000)
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+    <body>
+       请输入你的英文名字： <input type="text" name="" id="fname"  onchange="check()">
+        <p>当你离开输入框时，字母从小写转成大写</p>
+        <script>
+            function check(){
+                var x =  document.querySelector("#fname")
+            x.value= x.value.toUpperCase();
+            }
+          
+        </script>
+    </body>
+</html>

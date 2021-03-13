@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./ajax.js"></script>
+</head>
+<body>
+    <script>
+    var bod=document.querySelector("body")
+        ajaxGet("http://47.92.82.13:4000/showLevel",function fun(res){
+            for(var i=0;i<res.data.length;i++)
+            {
+                bod.innerHTML+=res.data[i].levelname+"<br>"
+            }
+            // console.log(res.data[0])
+        })
+        // foo();
+    </script>
+</body>
+</html>

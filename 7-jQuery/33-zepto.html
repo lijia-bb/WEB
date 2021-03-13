@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/zepto.js"></script>
+    <script src="./js/touch.js"></script>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+
+        //  $(".box").click(function(){
+        //     console.log("click");
+        // })
+        // $(".box").tap(function(){
+        //     console.log("tap");
+        // })/* tap 无等待 */
+        $(".box").swipe(function(){
+            console.log("swipe");
+        })/* tap 无等待 */
+        $(".box").swipeLeft(function(){
+            console.log("swipeLeft");
+        })/* tap 无等待 */
+        $(".box").swipeRight(function(){
+            console.log("swipeRight");
+        })/* tap 无等待 */
+    </script>
+</body>
+</html>

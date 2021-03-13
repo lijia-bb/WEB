@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>{{obj.a}}</div>
+        <div>{{obj.b}}</div>
+        
+        <button @click="change"> change</button>
+    </div>
+    
+    <script>
+       let app= new Vue({
+            //固定语法
+            el:"#app",/* 捕获元素 */
+            data:{/* 文本数据 */
+              obj:{
+                  a:1,
+                  b:2
+              }
+               
+            },
+            methods:{
+                change(){
+                    this.obj.a="hello"
+                    this.obj.b="hello"
+                }
+            },
+            watch:{/* 监听某个属性变化 一个值影响多个值*/
+            //    'obj.a':function(){
+            //     console.log("com");
+            //    },
+
+               obj:{
+                deep:true,
+                handler(){/* 函数名固定 */
+                    console.log("com")
+                }
+               }
+            }
+        })
+        
+    </script>
+</body>
+</html>

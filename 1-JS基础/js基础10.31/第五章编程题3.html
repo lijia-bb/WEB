@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var coun=0;
+        function f(x)
+        {
+            if(x>=0)
+            {
+                if(x%3==0&&x%5==0&&x%7==0)
+                {
+                    document.write(x+"&nbsp");
+                    coun++;
+                    if(coun%6==0)
+                    {
+                        document.write("<br />")
+                    }
+                }
+            }
+        }
+        
+            for(i=1;i<=1000;i++)
+            {
+                
+                     f(i);
+                     
+                    //  if(i%==0)
+                    //  {
+                    //      document.write("<br />")
+                    //  }
+
+            }
+
+        
+    </script>
+</body>
+</html>

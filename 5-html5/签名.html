@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+     #box{
+         background-color: black;
+       
+     }
+    </style>
+</head>
+<body>
+    <canvas id="box" width="800" height="800">
+
+    </canvas>
+    <script>
+        var oB=document.querySelector("#box")
+        var context=oB.getContext("2d");
+        
+        oB.onmousedown=function(e){
+            context.beginPath();
+            context.lineWidth=10;
+            context.strokeStyle="white"
+            context.moveTo(e.clientX,e.clientY);
+            // console.log(e.clientX,e.clientY)
+            oB.onmousemove=function(e){
+                context.lineTo(e.clientX,e.clientY);/* 绘画结束点 */
+                context.stroke();
+                
+               /* 绘画开始点 */
+              
+        }
+        }
+        oB.onmouseup=function(e){
+           oB.onmousemove=null
+          
+        }
+      
+    </script>
+</body>
+</html>

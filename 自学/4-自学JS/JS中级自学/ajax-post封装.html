@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./ajax-post封装.js"> </script>
+</head>
+
+<body>
+    <input type="text " id="context" placeholder="请输入值">
+    <button id="btn"> 提交</button>
+    <ul id="oul">
+
+    </ul>
+   
+    <script>
+        var Oul = document.querySelector("#oul")
+        var obt = document.querySelector("#btn")
+        var tet = document.querySelector("#context")
+        obt.onclick = function () {
+           
+            ajaxPost( "http://47.92.82.13:4000/insertOneLevel",{levelname:tet.value},function fun(res){
+                Oul.innerHTML=" "
+                get()
+            })
+        }
+        function get() {
+            ajaxGet("http://47.92.82.13:4000/showLevel", function fun(res) {
+                console.log(res.data[res.data.length - 1].levelname)
+                for (var i = res.data.length - 1; i >= 0; i--) {
+                    
+                    Oul.innerHTML += "<li>" + res.data[i].levelname + "</li>" + "<br>"
+                }
+
+            })
+        }
+        get()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        .div1{
+            width: 200px;
+            height: 200px;
+            background-color:pink;
+        }
+        .div2{
+            width: 100px;
+            height: 100px;
+            background-color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <a href="baidu.com" @click.prevent="aclick">百度</a><!-- 阻止默认行为 -->
+<!--        
+        <div class="div1" v-on:click="clickHandle1">
+            <div class="div2" v-on:click="clickItem2(1,$event)">
+    
+            </div> -->
+            <!-- <div class="div2" v-on:click="clickHandle2">
+    
+            </div>-->
+        <!-- </div> -->
+        <div class="div1" v-on:click.self="clickHandle1">
+            <!-- <div class="div2" v-on:click.stop="clickHandle2">
+    
+            </div>  -->
+            <div class="div2" v-on:click="clickHandle2">
+    
+            </div> 
+            <!-- <input type="text" @keyup.13="key"> -->
+            <input type="text" @keyup="key">
+        </div>
+    </div>
+    
+    <script>
+     let app =  new Vue({
+            el:"#app",
+            data:{
+                num:0
+            },
+            methods:{
+                clickHandle1(){
+                    console.log("clickHandle1");
+                   
+                },
+                // clickItem2(num,event){
+                //     console.log("clickItem2",num);
+                //     // event.stopPropagation()
+                //     event.stopPropagation()
+                // },
+                // clickHandle2(e){
+                //     console.log("clickItem2");
+                //     // $event.stopPropagation()
+                //     e.stopPropagation()
+                // }
+                clickHandle2(){
+                    console.log("clickHandle2");
+                   
+                },
+                key(e){
+                    console.log(e.keyCode)
+                }
+            },
+        })
+      
+    </script>
+</body>
+</html>

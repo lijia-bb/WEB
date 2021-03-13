@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        *{
+            margin: 0 auto;
+        }
+        table{
+            width: 300px;
+            margin: 0 auto;
+        }
+        tbody{
+            border-top:1px solid black;
+        }
+        .adv{
+            background-color: #fab;
+        }
+        .active{
+          background-color:orange;
+         
+          
+      }
+      .active1{
+          display: none;
+      }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>暂住地</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="title">
+                <tr class="adv">
+                    <td>前台设计组</td>
+                   
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>浙江宁波</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>女</td>
+                    <td>浙江杭州</td>
+                </tr>
+            </tr>
+            <tr class="title">
+                <tr class="adv">
+                    <td>前台开发组</td>
+                   
+                </tr>
+                <tr>
+                    <td>宁李</td>
+                    <td>男</td>
+                    <td>浙江宁波</td>
+                </tr>
+                <tr>
+                    <td>四三</td>
+                    <td>女</td>
+                    <td>浙江杭州</td>
+                </tr>
+            </tr>
+            <tr class="title">
+                <tr class="adv">
+                    <td>后台开发组</td>
+                   
+                </tr>
+                <tr>
+                    <td>火花</td>
+                    <td>男</td>
+                    <td>浙江宁波</td>
+                </tr>
+                <tr>
+                    <td>喇叭</td>
+                    <td>女</td>
+                    <td>浙江杭州</td>
+                </tr>
+            </tr>
+        </tbody>
+    </table>
+   <script>
+      
+       $(".adv").click(function(){
+        //   if(!$(this).hasClass("active"))
+        //   { 
+        //       $(this).addClass("active").nextUntil(".title").addClass("active1")
+        //     }
+        //     else
+        //     {
+        //         $(this).removeClass("active").nextUntil(".title").removeClass("active1")
+        //     }
+        // $(this).attr("id")/* 捕获id */
+        $(this).toggleClass("active").nextUntil(".title").toggleClass("active1")/* 切换判断是否存在这个类 */
+
+
+            
+             
+       })
+   </script>
+</body>
+</html>

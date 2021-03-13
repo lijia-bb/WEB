@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //语法糖 优化老语法 
+    //    async function foo(){/* 等价于promise */
+    //         return "hello"
+    //     }
+    //     console.log(foo());
+
+
+        function getDate(){
+            return new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    // resolve("scucces")
+                    reject()
+                },1000)
+            })
+        }
+          // getDate().then(function(res){
+        //     console.log(res)/* 在执行任务队列 */
+        // })
+        // console.log("1")/* 先执行同步代码 */
+
+        //将异步代码提前执行  await等待异步代码执行完毕
+        // async function foo(){
+        //     await getDate().then(function(res){
+        //         console.log(res)
+        //     })/* 先执行 等待*/
+        //     console.log("1")/* 后执行 */
+        // }
+        // foo()
+      
+
+        //捕获异常
+        async function foo(){
+            try{
+                await getDate().then(function(res){
+                console.log(res)
+            })/* 先执行 等待*/
+            }catch(error){
+                console.log("error")
+            }
+          
+            console.log("1")/* 后执行 */
+        }
+        foo()
+    </script>
+</body>
+</html>

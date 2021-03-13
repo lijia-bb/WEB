@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div1">
+        <div class="span1">
+            div1 <button>向上</button> <button>向下</button>
+        </div> 
+        <div class="span2"> 
+            div2 <button>向上</button> <button>向下</button>
+        </div> 
+        <div class="span3">
+            div3 <button>向上</button> <button>向下</button>
+        </div> 
+    </div>
+   
+    <script>
+        var div1= document.querySelector(".div1")
+       var sp1 = document.querySelector(".span1") .querySelectorAll("button")
+       var sp2 = document.querySelector(".span2") .querySelectorAll("button")
+       var sp3 = document.querySelector(".span3")  .querySelectorAll("button")
+       function swap(sp){
+        // div1.insertBefore(sp[0].parentElement,sp[0].parentElement.previousElementSibling)
+       }
+       swap(sp2)
+        sp2[0].onclick = function (){
+            div1.insertBefore(sp2[0].parentElement,sp2[0].parentElement.previousElementSibling)
+        }
+        sp2[1].onclick = function (){
+            div1.insertBefore(sp2[0].parentElement.nextElementSibling,sp2[0].parentElement)
+        }
+        sp1[0].onclick = function (){
+            div1.insertBefore(sp1[0].parentElement,sp1[0].parentElement.previousElementSibling)
+        }
+        sp1[1].onclick = function (){
+            div1.insertBefore(sp1[0].parentElement.nextElementSibling,sp1[0].parentElement)
+        }
+        sp3[0].onclick = function (){
+            div1.insertBefore(sp3[0].parentElement,sp3[0].parentElement.previousElementSibling)
+        }
+        sp3[1].onclick = function (){
+            div1.insertBefore(sp3[0].parentElement.nextElementSibling,sp3[0].parentElement)
+        }
+    </script>
+</body>
+</html>

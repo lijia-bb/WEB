@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let setArr=new Set([1,2,3,3,4,4,5,6,7]);/* 不能出现重复值 如果出现重复值，不报错，去掉重复值*/
+        // console.log(setArr);
+
+        let setarr=new set();
+        let setobj=new WeakSet();/* 数组成员只能是对象 添加数组成员是其他时会报错*/
+        function fn(){
+
+        }
+        let obj={
+            a:1
+        }
+        setarr.add(1,"abc",obj,fn);
+        setarr.delete(1)/* 单个删除 */
+        setarr.clear()/* 全部清除 */
+        console.log(setarr.has(1));/* 判断是否存在某个值 */
+        console.log(setarr.size);/* 返回长度 */
+
+        setobj.add({a:"123"})
+        setobj.add({a:"123"})/* 两个成立引用数据类型保存的是地址不是数值 */
+    </script>
+</body>
+</html>

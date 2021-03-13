@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+   
+    <script>
+        //1-创建XMLHttpReques对象
+        var xmlhttp;
+        //浏览器能力测试
+        if (window.XMLHttpRequest)/* chrome */ {
+            xmlhttp = new XMLHttpRequest();
+        }
+        else/* IE5，IE6 */ {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP")
+        }
+
+        //2-向服务器发送请求
+        xmlhttp.open("GET"/* 一般情况获取数据 */, "./test.json"/* 请求本地文件 */, true/* 异步 */)/* push提交请求 */
+        xmlhttp.send()/* 将请求发送个服务器 */
+
+        //3-接受回调
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.staus == 200) {
+              
+                console.log(JSON.parse(xmlhttp.responseText))
+                // console.log(obj.userName)
+            }
+        }
+    </script>
+</body>
+
+</html>

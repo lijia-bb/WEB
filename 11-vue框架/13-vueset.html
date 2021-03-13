@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body> 
+    <div id="app">
+        <ul >
+            <li v-for="val in arr">{{val}}</li>
+            
+        </ul>
+        <ul >
+            <li v-for="val in obj">{{val}}</li>
+            
+        </ul>
+        <button @click="changeHandel">change</button>
+        <button @click="changeHandel2">change2</button>
+    </div>
+   
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                arr:[1,2,3],
+                obj:{
+                    school:'黑大',
+                    name:'李嘉',
+
+
+                }
+            },
+            methods:{
+                changeHandel(){/* 需要对数组某一个数值进行修改或添加的话， 那么双向数据绑定就失效了 */
+                    // this.arr[0]="a",
+                    // console.log(this.arr);
+                    // this.arr.push('abc')
+                    //方法一
+                    // let newArr=[...this.arr]/* 一维和多维数组 */
+                    // newArr[0]="a"
+                    // this.arr=newArr
+                    //方法二
+                    Vue.set(this.arr,0,'a')/* 数组改值 */
+                },
+                changeHandel2(){//对象
+                    this.obj.school="理工"/* 可更改 不可添加 */
+                    Vue.set(this.obj,'sex','男')/* 添加成功 */
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

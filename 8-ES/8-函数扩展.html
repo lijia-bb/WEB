@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let arr=[1,2,3,4,5,6];
+        // console.log(arr.slice(2,5));/* 传入的索引 返回值 */
+        // console.log(arr.slice(2));/* 传一个也可传多个 */
+
+        // function foo(a,b="hello"){/* 可以设置默认值 从后往前写 不能留空*/
+        //     console.log(a,b);
+        // }
+        // foo(1,2);
+
+        
+        // function foo(){/* 可以设置默认值 从后往前写 不能留空*/
+        //     console.log("11");
+        // }
+        // console.log((foo.name))/* 返回函数名 */
+     
+        // let foo = function foo2(){
+        //     console.log(11);
+        // }
+        // console.log(foo.name)/* foo2 */
+
+        //  function foo(a,b,c=1){
+           
+        // }
+        // console.log((foo.length))/*2 返回必传的形参个数 排除默认 */
+     
+        // 箭头函数
+
+        // function foo(){
+
+        // }
+        // let foo2=function(){
+
+        // }
+            // let foo=()=>{
+            //     console.log("1");
+            // }
+            // foo();
+            // let foo=()=>{
+            //     console.log("hello");
+            // }
+            // foo();
+
+
+            // let foo=()=>'hello'/* 省略函数体大括号 将箭头后面的第一条语句作为函数值 */
+            // foo();
+            // console.log(foo());
+
+            // var a="2"
+            // var obj={
+            //     a:"1",
+            //     fn(){
+            //         console.log(this.a);
+            //     }
+            // }
+            // obj.fn()/* 返回1 */
+
+            // var a="2"
+            // var obj={
+            //     a:"1",
+            //     fn:()=>{/* 箭头函数的this 不是指向调用的对象，而是指向定义时所在的对象 */
+            //         console.log(this.a);
+            //     }
+            // }
+            // obj.fn()/* 返回2  */
+
+        //     var a="2"
+        //     var obj={
+        //         a:"1",
+        //         b:this.a,
+        //         fn:()=>{/* 箭头函数没有this */
+        //             console.log(this.a);
+        //         }
+        //     }
+        //    console.log(obj.b)/* 2 */
+
+
+       //不能使用arguaments
+    //    let foo=()=>{
+    //        console.log(arguments);
+    //    }
+    //    foo()/* 错误 */
+        //代替方法
+           let foo=(...arr)=>{
+           console.log(...arr);
+       }
+       foo(arr[1,2,3])/* 错误 */
+
+
+    </script>
+</body>
+</html>

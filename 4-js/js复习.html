@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函数执行之后无返回值 
+        // function foo(){
+        //     console.log("123")
+        // }
+        // console.log(foo())/* 返回 123 undefined */
+
+        // 函数柯里化
+        // function fun(){
+        //     console.log("123")
+        // }
+        // fun()()
+        
+        // 先捕获后冒泡
+
+        //{}=={} 【】=[] 
+        //闭包 内部函数能够引用外部函数的局部变量，并且变量不会释放。 缺点 内存容易溢出
+        // function foo(){
+        //     var a=123
+        //     return function(){
+        //         a++;
+        //         console.log(a);
+        //     }
+        // }
+        // var test = foo();
+        // test();
+        // test();
+
+        // 定位方式 static（默认） fix relative absolute(相对于祖先元素，并且祖先元素使用了除了static的定位元素)
+
+        //盒模型 标准盒模型和怪异盒模型(padding+width+border) 消除padding和border影响 使用 border-sizing:border-box  虽然使用这个，但是padding特别大的话就会影响原本和模型高宽
+        //行、块元素区别   行元素不可以设置高宽（padding/margin：10px 只会改变左右不会改变上下）span i em，块元素可以设置高宽（独占一行）p\h1-h6\div\
+        //行块元素 可以设置高宽、不独占一行。
+    </script>
+</body>
+</html>

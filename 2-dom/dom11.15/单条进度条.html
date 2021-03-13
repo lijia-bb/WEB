@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        
+    </div>
+    <script>
+        var box = document.querySelector("#box")
+        var time=null
+        console.log(box)
+        box.onmouseover = function () {
+            clearInterval(time)
+           time= setInterval (function() {
+                
+                box.style.width=box.offsetWidth+10+"px"
+                if(box.offsetWidth>=400)
+                {
+                    clearInterval(time)
+                  
+                    if(box.offsetWidth<=200)
+                    {
+                        clearInterval(time)
+                    }
+                    
+                }
+            },16)
+        }
+        box.onmouseout = function (){
+            clearInterval(time)
+            time = setInterval (function(){
+            box.style.width=box.offsetWidth-10+"px"
+            
+            if(box.offsetWidth<=100)
+                    {
+                        clearInterval(time)
+                    }
+                    },16)
+        }
+        
+    </script>
+</body>
+</html>

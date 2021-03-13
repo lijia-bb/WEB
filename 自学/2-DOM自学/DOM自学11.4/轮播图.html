@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 1440px;
+            height: 375px;
+            background-color: white;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .box{
+            border: 1px solid white;
+            width: 490px;
+            height: 375px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .swiper-img{
+           
+        }
+        .swiper-img li{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .swiper-btn{
+            display: block;
+            width: 490px;
+            height: 20px;
+            
+            position: absolute;
+            bottom: 15px;   
+            color: white;
+            z-index: 101;
+        }
+       .swiper-btn li{
+        background-color: #ff9900;
+        display: block;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        
+       }
+        .left-btn{
+            position: absolute;
+            left: 0;
+            
+        }
+        .left-btn li{
+            float: left;
+            border-radius: 15px;
+            margin-left: 10px;
+            
+        }
+        .right-btn{
+            position: absolute;
+            right: 0;
+        }
+        .right-btn li{
+            float: left;
+            margin-left: 10px;
+            border-radius: 15px;
+        }
+        .colo{
+            color: black;
+            background-color: blue;
+            z-index:102 ;
+        }
+        .active{
+          z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="swiper-img">
+            <ul>
+                <li >
+                    <img src="image/狗.jpg" alt="">
+                </li>
+                <li>
+                    <img src="image/狮子.jpg" alt="">
+                </li>
+                <li>
+                    <img src="image/草莓.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="swiper-btn">
+            <div class="left-btn">
+               <ul>
+                   <li>&lt;</li>
+                   <li>&gt;</li>
+               </ul>
+            </div>
+            <div class="right-btn">
+                <ul>
+                    <li >1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        var num=document.getElementsByClassName("right-btn")[0].getElementsByTagName("li")
+        var img=document.getElementsByClassName("swiper-img")[0].getElementsByTagName("li")
+        var onc=document.getElementsByClassName("left-btn")[0].getElementsByTagName("li")
+        var obox=document.getElementsByClassName("box")[0]
+        var nowIndex=0;
+        var time=null
+        function changeImg(index){
+            nowIndex=index
+            for(j=0;j<num.length;j++)
+            {
+                    num[j].classList.remove("colo")
+                   img[j].classList.remove("active")
+                       
+                }
+                num[index].classList.add("colo")
+                img[index].classList.add("active")
+        }
+        for(i=0;i<num.length;i++){
+            num[i].index=i
+            num[i].onmouseover=function (){
+                changeImg(this.index)
+            }
+        }
+        onc[0].onclick=function()
+        {
+            --nowIndex;
+            nn=parseInt(nowIndex%num.length)
+            changeImg(Math.abs(nn))
+        }
+        onc[1].onclick=function(){
+            ++nowIndex;
+            nn=parseInt(nowIndex%num.length)
+            changeImg(nn)
+        }
+        // var time=setInterval (function (){
+        //     ++nowIndex;
+        //     nn=parseInt(nowIndex%num.length)
+        //     changeImg(nn)
+        // },1000)
+      
+       function play(){
+           time = setInterval(function (){
+            ++nowIndex;
+            nn=parseInt(nowIndex%num.length)
+            changeImg(nn)
+           },1000)
+         
+       }
+       obox.onmouseover=function (){
+           
+            clearInterval(time)
+        }
+        obox.onmouseout=function (){
+            play()
+        }
+        play();
+    //     for(i=0;i<num.length;i++)
+    //     {
+    //         num[i].index=i
+    //         num[i].onmouseover=function () {
+    //             for(j=0;j<num.length;j++){
+    //                 num[j].classList.remove("colo")
+    //                img[j].classList.remove("active")
+                       
+    //             }
+    //             this.classList.add("colo")
+    //             img[this.index].classList.add("active")
+    //             // imge=img[i].getAttribute("src")
+    //             // img[3].setAttribute("src","image")
+    //         }
+    //     }
+        
+    //     onc[1].onclick=function (){
+           
+    //         ++nowIndex;
+    //         nn=parseInt(nowIndex%num.length)
+    //         console.log(typeof nn)
+    //         for(j=0;j<num.length;j++){
+    //                 num[j].classList.remove("colo")
+    //                img[j].classList.remove("active")
+                       
+    //             }
+    //       num[nn].classList.add("colo")
+    //         img[nn].classList.add("active")
+          
+    //     }
+    //     onc[0].onclick=function (){
+           
+    //         --nowIndex;
+    //        nn=Math.abs((nowIndex%num.length))
+    //        console.log(nn )
+    //        for(j=0;j<num.length;j++){
+    //                num[j].classList.remove("colo")
+    //               img[j].classList.remove("active")
+                      
+    //            }
+    //      num[nn].classList.add("colo")
+    //        img[nn].classList.add("active")
+         
+    //    }
+      
+        // for(i=0;i<onc.length;i++){
+        //     onc[i].index=i
+        //     onc[i].onclick=function (){
+        //         for(j=0;j<onc.length;j++)
+        //         {
+        //             onc[j].classList.remove("colo")
+        //         }
+        //         this.classList.add("colo")
+        //     }
+        // }
+    </script>
+</body>
+</html>

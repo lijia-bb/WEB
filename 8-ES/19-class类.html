@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //类  语法糖
+        class Person{
+            constructor(username,userage){
+                this.name=username
+                this.age=userage
+            }
+            showName(){
+                console.log(this.name);
+            }
+        }
+        let teacher=new Person("小王",20)
+        console.log(teacher.name)
+        teacher.showName()
+
+        //继承
+        class Teacher extends Person{
+            constructor(username,userage,school){
+                super(username,userage)
+                this.school=school
+            }
+            showchool(){
+                console.log(this.school)
+            }
+        }
+        let teacher1=new Teacher("狗子",30,"黑大");
+        console.log(teacher1.name)
+        teacher.showName()
+    </script>
+</body>
+</html>

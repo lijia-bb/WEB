@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #text{
+            width: 100px;
+            height:100px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 20px;
+            margin: 0 auto;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            background-color: gray;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 300px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -200px;
+            margin-left: -200px;
+
+        }
+        button{
+            width: 100px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="text">
+              100
+        </div>
+        <button>
+            开始
+        </button>
+    </div>
+   
+    <script>
+         var btn=document.getElementsByTagName("button")[0]
+         var ot=document.getElementById("text")
+         var num=100
+         var isempty=false
+         var timer=null
+         btn.onclick=function (){
+             isempty=!isempty
+             if(isempty){
+              timer=setInterval (function (){
+        
+                btn.innerText="暂停"
+             ot.innerText=num--
+             if(num<0)
+             {
+                 
+                btn.innerText="开始"
+                isempty=false
+                 clearInterval(timer)
+                 num=100
+                 
+            
+             }
+             
+             
+             },1000)
+             }
+             else{
+                 btn.innerText="开始"
+                 clearInterval(timer)
+             
+             }
+            
+         }
+    </script>
+</body>
+</html>

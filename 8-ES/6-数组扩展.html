@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <ul>
+       <li></li>
+       <li></li>
+       <li></li>
+       <li></li>
+       <li></li>
+   </ul>
+   <script>
+       ali=document.getElementsByTagName("li")/* 伪数组 */
+    //    ali.push("1")/* 错误 */
+        // console.log(Array.from(ali));
+        // arr=Array.from(ali)/* 将伪数组转换成真实数组 */
+        // arr.push(1)
+//    var arr=[1,2,3]
+    //    arr.push("hello")
+    //    console.log(arr);
+        // let arr={}
+
+    // var arr=[1,2,3,4,5,6,7,8]
+    // console.log(arr.fill("xx",3,6));/* 指定位置替换 */
+
+    // var arr
+
+
+    let arr=[1,2,3,4,5,6,7]
+    // for(let i=0;i<arr.length;i++){
+    //     console.log(arr[i])
+    // }
+    // for(let val of arr){
+    //     console.log(val)
+    // }/* 数组遍历 返回值*/
+    //  for(let key of arr.key()){
+    //     console.log(key)
+    // }/* 数组遍历 返回索引*/
+    // var obj={
+    //     a:"1",
+    //     b:2
+    // }
+    // console.log(Object.keys(obj));
+
+    // 语法糖
+    //  for(let [key,val] of arr.entries()){
+    //     console.log(key,val)
+    // }/* 数组遍历 返回数组和索引*/
+
+    // let arr=["a","b","c","d","e","f"]
+    // arr.forEach(function(val,key,arr){
+    //     console.log(val,key,arr);/*遍历数组 值，索引，整个数组 */
+    // })
+
+    // let arr2=arr.map(function(val,key,arr){
+    //     console.log(val,key,arr);/*与forEach区别 有返回值，能够对现有的数组进行操作比如更新生成一个新的数组 */
+    //     return "vip"+val
+    // })
+    // console.log(arr2)
+
+    //  let arr2=   arr.filter(function(val,key,arr){
+    //         // console.log(val,key,arr);
+    //         // if(val>="d"&&val<='g'){
+    //         // return "vip"+val
+    //         return    (val>="d"&&val<='g')  /*  val *//* 返回的只要是ture 接受的解释结果 */
+    //         // }
+    //     })
+    // console.log(arr2)/* 接受还是原数组的结果 与返回值无关 */
+
+
+    // let arr2=   arr.map(function(val,key,arr){
+    //         // console.log(val,key,arr);
+    //         // if(val>="d"&&val<='g'){
+    //         // return "vip"+val
+    //         return    (val>="d"&&val<='g')  /*  val *//* 返回的只要是ture 接受的解释结果 */
+    //         // }
+    //     })
+    // console.log(arr2)/* 虽然还是取d-f 但是其他都是undifined filter单纯的就是d-f*/
+    
+
+    // let boo=arr.some(function(val,key,arr){/* 返回的是boo值 */
+    //     console.log(val,key,arr);
+    //     // return val>5
+    //     /* 等价于 */if(val>5){
+    //         return true
+    //     }
+    //     console.log(val)/* 只要一个值满足条件 后面就不遍历 */
+    // })
+    // console.log(boo)
+
+    // let boo=arr.every(function(val,key,arr){/* 返回的是boo值 */
+    //     console.log(val,key,arr);
+    //     // return val>5
+    //     /* 等价于 */if(val>5){
+    //         return true
+    //     }
+    //     console.log(val)/* 要求每一个值满足条件 检测第一个不是则输出第一个 */
+    // })
+    // console.log(boo)
+
+    // let num=arr.find(function(val,key,arr){/* 返回的是具体的值  之前返回的都是数组或boo */
+    //     console.log(val,key,arr);
+    //     // return val>5
+    //     /* 等价于 */if(val>5){
+    //         return true
+    //     }
+    //     console.log(val)/* 只要一个值满足条件 后面就不遍历 */
+    // })
+    // console.log(num)/* 6 */
+
+    let num=arr.findIndex(function(val,key,arr){/* 返回的具体值的索引 */
+        console.log(val,key,arr);
+        // return val>5
+        /* 等价于 */if(val>5){
+            return true
+        }
+        console.log(val)/* 只要一个值满足条件 后面就不遍历 */
+    })
+    console.log(num)/* 7 */
+   </script>
+</body>
+</html>

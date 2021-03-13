@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //原型
+        // let arr=[];
+        // arr.push(1)
+        // console.log(arr)
+        // let num="12"
+        // num.push(2);
+
+        // let arr =new Array(1,2)
+        // console.log(arr.__proto__)/* 查询实例化对象原型 */
+        // conosle.log(Array.prototype)/* 查询 构造函数的原型*/
+        // Array.prototype.vip2()/* 添加一个原型方法 */
+
+
+        // function foo(){
+        //     console.log("hello");
+        // }
+        // foo.prototype.test=function(){
+        //     console.log("baby")
+        // }
+
+        // var fun=new foo;
+        // fun.test();
+
+    //     let a="hello"
+    //     let obj={
+    //         a:"bab"
+    //     }
+    //    function fun(obj){
+    //        console.log(this.a);
+    //    }
+
+    //     Function.prototype.myCall=function(obj){
+    //          this.apply(obj)
+    //     }
+    //     fun.myCall(obj)
+
+    //     let a="hello"
+    //     let obj={
+    //         a:"bab"
+    //     }
+    //    function fun(arg1,arg2){
+    //        console.log(this.a,arg1,arg2);
+    //        return "hello"
+    //    }
+
+    //     Function.prototype.myCall=function(obj,...arg){/* 剩余运算符 放到一个数组里 */
+           
+    //         obj.fn=this
+    //      
+    //         var str=obj.fn(...arg)/* 扩展运算符 */
+    //         delete obj.fn
+    //         return str
+    //     }
+    //     var str=fun.myCall(obj,"hello","baby")
+
+        // Function.prototype.myapply=function(obj,arg){
+           
+        //     obj.fn=this
+            
+        //     var str=obj.fn(...arg)
+        //     delete obj.fn
+        //     return str
+        // }
+        // var str=fun.myapply(obj,["hello","baby"])
+     
+
+    //     let a="hello"
+    //     let obj={
+    //         a:"bab"
+    //     }
+    //    function fun(arg1,arg2){
+    //        console.log(this.a,arg1,arg2);
+    //        return "hello"
+    //    }
+    //       Function.prototype.mybind=function(obj,...arg){
+    //       var thi=this
+    //         return function(){
+    //             thi.call(obj,...arg)
+    //         }
+    //     }
+    //     fun.mybind(obj,"a","b")()
+    </script>
+</body>
+</html>

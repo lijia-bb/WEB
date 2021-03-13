@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //变量提升会提到当前作用域的最顶端
+        // console.log(a)
+        // var a=10;
+        //相当于
+        // var a
+        // conosole.log(a)
+        // a=10
+
+        // function foo(){
+        //     console.log(a);/* undefined */
+        //     var a=10
+        // }
+        // foo()
+        // console.log(a)/* not define */
+
+        // function foo(){
+        //     console.log(a);/* not defined */
+        //      a=10 /* 隐式定义不会变量提升 */
+        // }
+        // foo()
+        // console.log(a)/* not defined */
+
+        // var a=10
+        // var a=function(){
+        //     console.log("1")
+        // }
+        // a();
+        // console.log(a)
+
+        // foo()
+        // function foo(){/* 函数定义 */
+        //     console.log("1")/* 函数提升 */
+        // }
+
+        // console.log(a)
+        // var a=10;
+        // var a=function(){
+        //     console.log("1")
+        // }
+        // a();/* 先undifine 再到1 */
+
+        console.log(a)
+        var a=10;
+        function a(){
+            console.log("1")
+        }
+        a()/* xian函数体 not defined */
+
+
+    </script>
+</body>
+</html>

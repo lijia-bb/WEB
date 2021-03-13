@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=new Array()
+        var months=new Array()
+        var ye=parseInt( window.prompt("输入年份"))
+        var mo=parseInt( window.prompt("输入月份"))
+        var da=parseInt( window.prompt("输入几号"))
+        function isLeapYear(y){
+            if((ye%4==0&&ye%100!==0)||(ye%400==0))
+            {
+               return 1
+            }
+            
+        }
+        var IS=isLeapYear(ye)
+       if(IS){
+            for(i=0;i<12;i++)
+            {
+                var c=i%2
+                if(!c)
+                {
+                    a[i]=31
+                }
+                else 
+                {
+                    a[i]=30
+                    if(i==1)
+                    {
+                        a[i]=29
+                    }
+                    if(i==7)
+                    {
+                        a[i]==31
+                    }
+                }
+                
+            }
+            
+       }
+        else
+        {
+           
+           
+            for(i=0;i<12;i++)
+            {
+                var c=i%2
+                if(!c)
+                {
+                    a[i]=31
+                }
+                else 
+                {
+                    a[i]=30
+                    if(i==1)
+                    {
+                        a[i]=28
+                    }
+                    if(i==7)
+                    {
+                        a[i]==31
+                    }
+                }
+                
+            }
+            
+        }
+     
+        var day = 0
+        for(i=0;i<(mo-1);i++)
+        {
+            
+           day=day+a[i]
+           
+          
+        }
+        document.write(day+da)
+        
+        
+    </script>
+</body>
+</html>

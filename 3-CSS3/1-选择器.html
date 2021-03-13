@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box .div1{
+            background-color: red;
+        }/* 后代选择器 */
+
+
+        .box,.div1{
+
+        }
+
+
+        .box>.div1{
+
+        }/* 子代选择器 */
+
+
+        .box.div1{
+
+        }/* 即命名box 也命名display: 1px; */
+
+
+        .div1  + .div2{
+            background-color: blue;
+        }/* 紧跟它后面的兄弟，不能跳级 。div1+.div3出现任何变化 只针对一个*/
+
+
+
+        .div1 ~ .div{
+
+        }/* 一个或多个元素 div2和div3都会改变 与+对比就是可以紧跟其后的多个元素*/
+
+
+
+        [class="div1"]{
+            color: red;
+        }/* 属性选择器  class和id统称为属性 */
+
+         /* [src="..."]{
+
+        } */
+
+
+
+        [class ~="box"]{
+
+        }/* 只要这个同级类名包括了这个box类名，就可以被选中 */
+
+
+       [class^="box"]{
+
+       }/* 将整个类名当字符串解析 并且以box开头 */
+       
+
+        [class$="box"]{
+            color: red;
+        }/* 将整个类名当字符串解析 并且以box结尾 */
+
+
+        [class*="box"]{
+
+        }/* 将整个类名当字符串解析  包含box就被选中*/
+
+
+
+        [class|="test"]{
+
+        }/* 所有以test开头或者以test-开头就被选中 前面不能出现任何类名*/
+
+
+        
+        a:link{
+            color: red;
+        }/* 默认 */
+        a:hover{
+            color: blue;
+        }/* 滑过 */
+        a:active{
+            color: green;
+        }/* 点击瞬间 */
+        a:visited{
+            color: yellow;
+        }/* 链接点击之后被点击过  */
+        /* 位置顺序 link visited hover active */
+    </style>
+</head>
+<body>
+    <!-- 伪类选择器 ul li:first-child -->
+    <!-- 伪元素选择器 ::after -->
+    <a href=""></a>
+    <div class="div1 box">
+
+    </div>
+    <div class="div1"></div>
+    <div class="box12"></div>
+    <div class="test-a"></div>
+    <div class="box"> 
+        <div class="div1">
+
+        </div>
+        <div class="div2">
+
+        </div>
+        <div class="div3">
+
+        </div>
+    </div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        var str="test123"
+        console.log(str.indexOf("est"));
+    </script>
+</body>
+</html>

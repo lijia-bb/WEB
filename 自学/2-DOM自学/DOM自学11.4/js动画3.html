@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <div class="box">
+
+    </div>
+    <div class="box">
+
+    </div>
+    <script>
+        var obox=document.getElementsByClassName("box")
+       
+        for(var i=0;i<obox.length;i++){
+            obox[i].set=i
+          
+        obox[i].onmouseover=function (){
+            var _this=this
+            clearInterval(this.set)
+            this.set=setInterval ( function () {
+               
+                // tim++ /* 下次在对本行加的时候就没办法找到了 */
+                if(_this.offsetWidth>=500)
+                {
+                    clearInterval(_this.set)
+                }
+               else{
+                _this.style.width=(_this.offsetWidth+10)+"px"
+               }
+              
+            },16)
+        }
+        obox[i].onmouseout=function (){
+             
+            var _this=this
+           
+            clearInterval(this.set)
+            this.set= setInterval (function()
+            {
+             
+                // timer++
+            if(_this.offsetWidth<=100) 
+            {
+                console.log("ffff")
+                clearInterval(_this.set)
+            }
+            else{
+                _this.style.width=(_this.offsetWidth-10)+"px"
+            }
+               
+            },16)
+        
+        }
+        }
+      
+    </script>
+</body>
+</html>

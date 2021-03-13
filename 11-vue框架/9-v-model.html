@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <input type="text" v-model.lazy="val" @keyup="onkeyup">lazy失去焦点触发事件  model捕获输入的数据  字符串 -->
+        <!-- <input type="text" v-model.number="val" @keyup="onkeyup"> --> <!-- lazy失去焦点触发事件  model捕获输入的数据  n转换成number-->
+       <!--  <input type="text" v-model.trim="val" @keyup="onkeyup"> --><!-- lazy失去焦点触发事件  model捕获输入的数据  去除空格 -->
+
+
+        <!-- <select name="" id="" v-model="sel">
+            <option value="a">理工</option>
+            <option value="b">黑大</option>
+            <option value="c">农大</option>
+            <option value="d">啥也不是</option>
+        </select> -->
+
+        <input type="checkbox" name="hoby" id="篮球" v-model="checke" value="a"><!-- 复选框 -->
+        <input type="checkbox" name="hoby" id="足球" v-model="checke" value="b">
+        <input type="checkbox" name="hoby" id="排球" v-model="checke" value="c">
+        <input type="checkbox" name="hoby" id="球" v-model="checke" value="d"> 
+
+
+        <input type="radio" name="sex" value="男" v-model="radio">男
+        <input type="radio" name="sex" value="女" v-model="radio">女
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                val:"",
+                sel:"b",
+                checke:[],/* 必须数组 */
+                radio:""
+            },
+            methods:{
+                onkeyup(){
+                    console.log(this.sel);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>firstName:{{firstName}}</h1>
+        <h1>lastName:{{lastName:}}</h1>
+        <h1>fulltName:{{fullName2}}</h1>
+    </div>
+    
+    <script>
+       let app= new Vue({
+            //固定语法
+            el:"#app",/* 捕获元素 */
+            data:{/* 文本数据 */
+               firstName:"a",
+               lastName:"b",
+               fullName:"ab",
+               
+            },
+            watch:{/* 监听某个属性变化 一个值影响多个值*/
+                firstName(val,oldval){/* 监听属性与函数名一样 */
+                    console.log(val,oldval)
+                    this.fullName2=val+" "+this.lastName
+                },
+                lastName(val,oldval){
+                    this.fullName2=this.lastName+" "+this.val
+                }
+            }
+        })
+        
+    </script>
+</body>
+</html>

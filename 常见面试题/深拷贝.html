@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr1 = [1, 2, { a: 1, c: { d: 2 }, b: 2 }, [4, 5, [9, 8, [12, 10]]], [6, 7]]
+        function deepClone(obj) {
+            let arr
+           
+            if (typeof obj === "object") {
+              
+                if (Array.isArray(obj)) {
+                    arr = []
+                    for (let i = 0; i < obj.length; i++) {
+                        arr.push(deepClone(obj[i]))
+                    }
+                 }
+                else {
+                    arr = {}
+                    for (let key in obj) {
+                        arr[key] = deepClone(obj[key])
+                    }
+
+                }
+             
+                return arr
+            }
+            else {
+             
+                return obj
+            }
+        }
+        let arr2 = deepClone(arr1)
+        arr1[3][0] = "hello"
+        console.log(arr2);
+
+        //方法二
+        // let obj={
+        //     a:1,
+        //     b:{
+        //         c:2,
+        //         d:3
+        //     }
+        // }
+        // obj2=JSON.parse(JSON.stringify(obj))
+        // obj.a="hello"
+        // console.log(obj2)
+
+        // 方法二存在的局限性
+        // let obj={
+        //     a:1,
+        //     b:{
+        //         c:2,
+        //         d:3,
+        //         e:new Date(),
+        //         f:function(){
+        //             console.log(123)
+        //         }
+        //     }
+        // }
+        // obj2=JSON.parse(JSON.stringify(obj))
+        // obj.a="hello"
+        // // console.log(obj2.b.e.getMonth())/* 对象里面存在的的一些方法失效 */
+        // console.log(obj2)/* 函数不显示  */
+    </script>
+</body>
+
+</html>

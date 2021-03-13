@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //JSON格式要是对象创建格式
+        //var str={"name":"xiaoming"}
+        var obj={
+            username:"xiaoming",
+            sex:"man",
+            age:20
+        }
+        console.log(JSON.stringify(obj))/* 对象转换成字符串 */
+        var str=JSON.stringify(obj)
+        console.log(JSON.parse(str))/* 字符串转换成对象 */
+    </script>
+</body>
+</html>

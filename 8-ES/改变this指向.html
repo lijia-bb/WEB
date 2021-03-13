@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 方法一
+         //    var a="2"
+        //     var obj={
+        //         a:"1",
+        //         b:this.a,/* this前面没有object */
+        //         fn:function(){/* 箭头函数没有this */
+        //             var thi=this
+        //             function foo(){
+                        
+        //                 console.log(thi.a);
+        //             }
+        //            foo()
+        //         }
+        //     }
+        //    obj.fn()/* 2 */
+
+        // 方法二
+        var a="2"
+            var obj={
+                a:"1",
+                b:this.a,/* this前面没有object */
+                fn:function(){/* 箭头函数没有this */
+                   
+                  let  foo = a =>{
+                        
+                        console.log(this.a);
+                    }
+                   foo()
+                }
+            }
+           obj.fn()/* 2 */
+
+        //    方法三
+        // var a="2"
+        //     var obj={
+        //         a:"1",
+        //         b:this.a,/* this前面没有object */
+        //         fn:function(){/* 箭头函数没有this */
+        //             function foo(){
+        //                 console.log(this.a);
+        //             }
+        //      foo.call(obj)
+        //         }
+        //     }
+        //    obj.fn()/* 2 */
+        //    var a="2"
+        //     var obj={
+        //         a:"1",
+        //         b:this.a,/* this前面没有object */
+        //         fn:function(){/* 箭头函数没有this */
+        //             function foo(a,b){
+        //                 console.log(this.a);
+        //             }
+        //      foo.call(obj,1,2)
+        //         }
+        //     }
+        //    obj.fn()/* 2 */
+
+
+        //方法三
+        // var a="2"
+        //     var obj={
+        //         a:"1",
+        //         b:this.a,/* this前面没有object */
+        //         fn:function(){/* 箭头函数没有this */
+        //             function foo(/* obj,b */){
+        //                 console.log(this.a);
+        //             }
+        //      foo.apply(obj/*,[1,2]  */)
+        //         }
+        //     }
+        //    obj.fn()/* 2 */
+
+            // 方法四
+        //    var a="2"
+        //     var obj={
+        //         a:"1",
+        //         b:this.a,
+        //         fn:function(){
+        //             function foo(){
+        //                 console.log(this.a);
+        //             }
+        //      foo.bind(obj)()
+        //         }
+        //     }
+        //    obj.fn()/* 2 */
+
+
+    </script>
+</body>
+</html>

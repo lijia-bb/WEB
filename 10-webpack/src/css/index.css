@@ -1,0 +1,12 @@
+.div1 {
+  color: blue;
+  width: 200px;
+  height: 200px;
+  background-image: url("../image/狗.jpg");
+}
+.div2{
+  color: red;
+}
+::placeholder{
+    color: pink;
+}

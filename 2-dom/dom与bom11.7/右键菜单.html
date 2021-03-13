@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #menu{
+            width: 100px;
+            border: 1px solid black;
+            display: none;
+            position: absolute;
+            
+        }
+        #box{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+       
+        }
+        .active{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="menu">
+            <div> 菜单</div>
+            <div> 菜单</div>
+            <div> 菜单</div>
+            <div> 菜单</div>
+        </div>
+    </div>
+   
+    <script>
+        obox=document.getElementById("menu")
+        abox =document.getElementById("box")
+        odiv=document.getElementById("menu").getElementsByTagName("div")
+        console.log(odiv)
+        abox.oncontextmenu=function(e){
+             obox.style.display="block"
+             abox.style.display="block"
+             console.log(e.clientX,e.clientY)
+             obox.style.left=e.clientX+"px"
+             obox.style.top=e.clientY+"px"
+             e.preventDefault();
+        }
+        for(i=0;i<odiv.length;i++)
+        {
+            odiv[i].onmouseover=function(){
+                for(j=0;j<odiv.length;j++){
+                   odiv[j].classList.remove("active")
+                }
+               
+                this.classList.add("active")
+            }
+        }
+        abox.onclick=function(){
+            obox.style.display="none"
+           
+        }
+    </script>
+</body>
+</html>

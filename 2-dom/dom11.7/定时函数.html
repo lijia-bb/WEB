@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        setTimeout(function(){
+            console.log("hello")
+        }
+        ,2000)/* 只执行一次 */
+        var num=0
+       time= setInterval(function() {
+            num++
+            document.writeln(num+"<br/>")
+            if(num==10)
+            {
+            clearInterval(time)/* 停止 */
+            }
+        }, 1000);/* 执行多次 */
+        //setinterval返回值是本身的索引
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a= new Array()
+        var N=window.prompt("输入N的值")
+        // 非递归函数
+        // function f(x)
+        // {
+        //     for(i=0;i<x;i++)
+        //     {
+        //         a[i]=a[i-1]+a[i-2]
+        //         if(i<2)
+        //         {
+        //             a[i]=1
+        //         }
+        //     }
+        // }   
+        // f(N)
+         //非递归函数
+         
+         function fibonacci(n){
+             var a=1
+             var b =1
+             if(n<3){
+                 return 1
+             }
+             else{
+                 for(var i=3;i<n;i++)
+                 {
+                     b=a+b;
+                     a=b-a
+                 }
+                 return a+b
+             }
+         }
+         console.log(fibonacci(n))
+        //递归函数 
+        
+        // for(i=1;i<=N;i++)
+        // {
+        //     function f(x)
+        // {
+        //     if(x<=2)
+        //     {
+        //         return 1
+        //     }
+        //     return f(x-1)+f(x-2)
+        // }
+        // }
+        // document.write(f(N))
+    </script>
+</body>
+</html>

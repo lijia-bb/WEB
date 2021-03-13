@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 1200px;
+            height: 200px;
+            /* display: flex; */
+            margin: 0 auto;
+            position: fixed;
+        left: 50%;
+            
+        }
+        img{
+            width: 300px;
+            height: 200px;
+            float: left;
+        }
+        .MM{
+            width: 300px;
+            height: 200px;
+            border: 1px dashed black;
+            position: relative;
+            left: 0;
+            top: 0;
+           overflow: hidden;
+            z-index: 101;
+        }
+        .bom{
+            
+            width: 300px;
+            position: absolute;
+            bottom: 0; 
+            z-index: 101;
+        }
+        
+        .left{
+            float: left;
+            width: 150px;
+        }
+        .right{
+            float: right;
+            width: 150px;
+        }
+        .content{
+            width: 1200px;
+            height: 300px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+       li{
+           width: 30px;
+           height: 30px;
+           text-align: center;
+            line-height: 50px;
+            line-height: 30px;
+          float: left;
+          list-style: none; 
+          margin-right: 5px;
+          background-color: orange;
+         border-radius: 15px; 
+      }
+    
+      /* .conten .active{
+          display: block;
+      } */
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="MM">
+            <div class="bom">
+                <div class="left">
+                    <ul>
+                        <li>&lt;</li>
+                        <li>&gt;</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="content">
+                
+                <div class="box1"><img src="image/狗.jpg" alt=""> </div>
+                <div class="box1"><img src="image/狮子.jpg" alt=""> </div>
+                <div class="box1"><img src="image/草莓.jpg" alt=""> </div>
+                <div class="box1"><img src="image/狗.jpg" alt=""> </div>
+            </div>
+        </div>
+       
+        
+    </div>
+    <script>
+        var left=document.querySelector(".left").querySelectorAll("li")
+        var con=document.querySelector(".content")
+        var right=document.querySelector(".right").querySelectorAll("li")
+        var ima=document.querySelector(".content").querySelectorAll("img")
+        var mm=document.querySelector(".MM")
+        var nowindex=0
+        /* 图片移动 */
+       
+        /* 左箭头移动 */
+        var tim=null
+        var time=null
+        left[0].onclick =function(){
+            clearInterval(tim)
+            nowindex-=1
+           if(nowindex<0)
+           {
+               con.style.left=-900+"px"
+           }
+             time=setInterval(function(){
+                if(nowindex<0)
+                {
+                    
+                    con.style.left=con.offsetLeft+10+"px"
+                    if(con.offsetLeft==-600)
+                    {
+                        clearInterval(time)
+                        
+                        nowindex=2
+                    }
+                   
+                }
+                else{
+                    console.log(nowindex)
+                    con.style.left=con.offsetLeft+10+"px"
+                    console.log(con.offsetLeft)
+                    if(con.offsetLeft==-nowindex*300)
+                    {
+                        clearInterval(time)
+                    }
+                   
+                }
+               
+            },16)
+           
+        }
+        /* 右箭头移动 */
+        left[1].onclick =function(){
+            clearInterval(tim)
+            nowindex+=1
+            
+             time=setInterval(function(){
+                    con.style.left=con.offsetLeft-10+"px"
+               
+                    if(con.offsetLeft==-nowindex*300)
+                    {
+                        clearInterval(time)
+                        console.log(nowindex)
+                        if(nowindex==3)
+                        {
+                            con.style.left=0
+                            nowindex=0
+                        }
+                       
+                    }               
+            },16)
+            
+            
+        }
+        /* 数字轮播 */
+       for(i=0;i<right.length;i++){
+           right[i].index=i
+           right[i].onclick =function (){
+              clearInterval(tim)
+               thi=this
+                time=setInterval(function(){
+                   nowindex=thi.index
+                   console.log(nowindex,con.offsetLeft)
+                    if(con.offsetLeft==-nowindex*300)
+                   {
+                    clearInterval(time)
+                    if(nowindex==3)
+                        {
+                            con.style.left=0
+                            nowindex=0
+                        }
+                   }
+                  else{
+                    con.style.left=con.offsetLeft-10+"px"
+                //   }
+                  }
+               },16)
+           }
+       }
+      
+       tim = setInterval(function(){
+                    con.style.left=con.offsetLeft-1+"px"
+                    if(con.offsetLeft==-900)
+                    {
+                      
+                        con.style.left=0
+                        nowindex=0
+                    }
+                    if(con.style.left%300==0)
+                    {
+                        nowindex++
+                    }
+       },4)
+     mm.onmouseover =function(){
+         clearInterval(tim)
+     }
+     mm.onmouseout = function(){
+        tim = setInterval(function(){
+            console.log("hah")
+                    con.style.left=con.offsetLeft-1+"px"
+                    if(con.offsetLeft==-900)
+                    {
+                      
+                        con.style.left=0
+                        nowindex=0
+                    }
+                    if(con.style.left%300==0)
+                    {
+                        nowindex++
+                    }
+       },4) 
+     }
+    //  con.onmousemove = function(){
+    //      clearInterval(tim)
+    //    tim= setInterval(function(){
+    //                 con.style.left=con.offsetLeft-10+"px"
+    //                 if(con.offsetLeft==-900)
+    //                 {
+    //                     console.log("hah")
+    //                     con.style.left=0
+    //                     nowindex=0
+    //                 }
+    //                 if(con.style.left%300==0)
+    //                 {
+    //                     nowindex++
+    //                 }
+    //    },40)
+    //  }   
+    </script>
+</body>
+</html>

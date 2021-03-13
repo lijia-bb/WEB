@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <span>hello</span>
+    <div class="box">ba <span> </span> by</div>
+    <span>word</span>
+    <script>
+        // $("span").wrap("<div></div>")/* 每一个span包裹一个div */
+        // $("span").wrapAll("<div></div>")/* 所有span都包裹在一起 */
+        $(".box").wrapInner("<span></span>")/* 仅插入到与目标元素最近的内层 */
+    </script>
+</body>
+</html>

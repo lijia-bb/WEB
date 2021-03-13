@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">merry</button>
+    <script>
+        var obtn=document.getElementById("btn")
+        var obj={}
+        obtn.onclick=function(){
+            var a=Math.random().toString().substr(3);
+           /*  console.log(location) */
+           location.hash=a
+           obj[a]=getRanArr()
+           console.log(obj)
+        }
+        window.onhashchange=function(){
+            var thisHas=location.hash.substr(1)
+            
+            for(var item in obj){
+                if(item == thisHas ){
+                    console.log([item])
+                }
+            }
+        }
+
+
+
+
+        function getRanArr(){
+            var arr=[];
+            for(var i=0;i<4;i++){
+                arr.push(parseInt(Math.random()*10))
+            }
+            return arr
+        }
+
+
+        // 将变量的值转成对象属性
+            // var num=123
+           
+            // var obj={}
+            // obj[num]=123
+            // console.log(obj)
+        // 对象遍历
+        
+
+    </script>
+</body>
+</html>

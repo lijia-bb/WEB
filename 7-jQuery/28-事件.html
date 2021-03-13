@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div class="div1"><input type="text" id="np"></div>
+    <script>
+        // $("#np").keydown(function(e){
+        //     console.log(e.keyCode);/* 每个键盘对应的数字 */
+        // })
+        $("#np").keydown(function(e){
+            console.log(e.which);/* 每个键盘对应的数字 */
+        })
+
+
+        // $(".div1").focusin(function(){
+        //     console.log("focusin");
+        // })/* 不是表单元素也行，但是要div里面要包含了能够触发事件的表单元素 */
+        // $(".div1").focusout(function(){
+        //     console.log("focusout");
+        // })/* 
+        // $("#np").focusin(function(){
+        //     console.log("focusin");
+        // })
+
+        // $(".div1").focus(function(){
+        //     console.log("focusin");
+        // })/* 只能绑定表单元素 */
+    </script>
+</body>
+</html>

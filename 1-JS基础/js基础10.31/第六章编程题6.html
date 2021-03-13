@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var sum=0
+        
+        var b=new Array()
+        for(i=0;i<7;i++)
+        {
+            var x=parseInt(window.prompt("请输入第"+(i+1)+"门成绩"))  
+            
+            sum=sum+x
+            if(x<60)
+            {
+                b[i]=x
+            }
+        }
+        document.write("总成绩为："+sum+"&nbsp"+"平均成绩为："+sum/7)
+        document.write("总分小于60的有："+b);
+      
+       
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        .box1{
+            width: 300px;
+            height: 100px;
+            background-color: pink;
+            
+        }
+        .active{
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div data-name="one" class="box1 active">one</div>
+        <div data-name="two" class="box1 ">two</div>
+        <div data-name="th"  class="box1">three</div>
+    </div>
+    <script>
+        var obox=document.getElementsByClassName("box1")
+        
+        for(i=0;i<obox.length;i++){
+            obox[i].onclick=function(){
+                for(j=0;j<obox.length;j++)
+                {
+                    obox[j].classList.remove("active")
+                }
+               this.classList.add("active")
+               location.hash=this.dataset.name
+            }
+        }
+        window.onhashchange = function (){
+            var thisHash=location.hash.substr(1)
+            console.log(thisHash)
+            for(var i=0;i<obox.length;i++)
+            {
+                
+                if(obox[i].dataset.name == thisHash){
+                    obox[i].classList.add("active")
+                 
+                }
+                else if(!thisHash)
+                {
+                    console.log("到顶了！！！！！")
+                }
+                else
+                {
+                    obox[i].classList.remove("active")
+                }
+            }
+          
+        }
+    </script>
+</body>
+</html>

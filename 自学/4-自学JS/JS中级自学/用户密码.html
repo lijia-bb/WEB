@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./pass.js"></script>
+</head>
+<body>
+    <input type="text" placeholder="请输入用户名" id="name" value="lijia">
+    <button id="btn">提交</button>
+    <script>
+        var ona=document.querySelector("#name")
+        var obt=document.querySelector("#btn")
+      
+        obt.onclick=function(){
+            ajaxGet("./pass.json",function fun(res){
+            console.log(res.name,ona.value)
+            if(ona.value==res.name)
+            {
+                console.log("输入用户名成功")
+            }
+            else{
+                console.log("用户名已被占用")
+            }
+        })
+        }
+        
+    </script>
+</body>
+</html>

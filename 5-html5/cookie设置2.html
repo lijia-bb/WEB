@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nowtime=new Date()
+        nowtime.setDate(nowtime.getDate()+1)
+        function setCookie(key,val,timer){
+            document.cookie=key+"="+val+";expires="+timer.toUTCString()
+           
+        }
+        function getCookie(key){
+            cookies=document.cookie
+            cookies=cookies.split(";")
+            
+            for(i=0;i<cookies.length;i++)
+            { 
+               if(cookies[i].split("=")[0].trim() == key)
+                {
+                   console.log(cookies[i].split("=")[1])
+                }
+
+            }
+           
+        }
+        function delCookie(key){
+            var tim=new Date()
+            tim.setDate(tim.getDate()-1)
+            document.cookie=key+"=null;expires="+tim.toUTCString()
+        }
+        setCookie("niuniu","kll",nowtime)
+        
+        getCookie("niuniu")
+        delCookie("lll")
+    </script>
+</body>
+</html>

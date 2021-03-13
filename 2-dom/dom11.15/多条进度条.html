@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelectorAll(".box")
+
+       
+        for (i = 0; i < box.length; i++) {
+            box[i].value=i
+            box[i].onmouseenter = function () {
+                
+               var thi = this
+                clearInterval(this.value)
+                this.value = setInterval(function () {
+
+                    if (thi.offsetWidth >= 400) {
+                        clearInterval(thi.value)
+                    }
+                    else {
+                        thi.style.width = thi.offsetWidth + 10 + "px"
+                    }
+                }, 16)
+                // this.style.width = this.offsetWidth + 1 +"px"
+            }
+            box[i].onmouseout = function () {
+               var thi = this
+                clearInterval(this.value)
+               this.value = setInterval(function () {
+
+                    if (thi.offsetWidth < 200) {
+                        clearInterval(thi.value)
+                    }
+                    else {
+                        thi.style.width = thi.offsetWidth - 10 + "px"
+                    }
+                }, 16)
+            }
+
+        }
+    </script>
+</body>
+
+</html>

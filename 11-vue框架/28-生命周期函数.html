@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <h1>{{num}}</h1>
+       
+        <button @click="clickHandle(2)">button</button><!-- 只有一次生效 -->
+        <button @click="destoryHandle">销毁 </button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                num:0,
+            },
+            methods:{/* 事件处理函数 */
+                clickHandle(i){
+                    this.num+=i
+                   
+                },
+                destoryHandle(){
+                    // this.$destory();
+                    this.$destroy();
+                },
+               
+            },
+            beforeCreate(){/* 创建之前 */
+                    console.log("beforeCreate")
+                },
+                created(){/* 创建完成 */
+                    console.log("created")
+                },
+                beforeMount(){/* 挂载 */
+                    console.log("beforeMount")
+                },
+                Mounted(){/* 虚拟DOM创建成功 并且挂载到页面 */
+                    console.log("Mounted")
+                },
+                beforeUpdate(){/* 数据更新之前 */
+                    console.log(" beforeUpdate")
+                },
+               updated(){/* 数据更新完成 */
+                    console.log("update")
+                },
+                beforeDestroy(){/* 销毁之前 代码失效 页面还存在 */
+                    console.log("beforeDestroy")
+                },
+                destroyed(){/* 销毁完成完成 */
+                    console.log("destroyed")
+                },
+        })
+    </script>
+</body>
+</html>

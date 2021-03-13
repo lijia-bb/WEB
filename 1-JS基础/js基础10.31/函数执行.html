@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function f0(){
+        //     function f1(){
+        //         document.writeln("123")
+        //     }
+        //     f1();
+        // }
+        // f0();
+        // function f2(){
+        //     document.write("123")
+        // }
+        // document.writeln(f2(),f0())/* 函数执行必须调用执行，内部函数不能在外面执行 */
+        function f0(x,y){
+            console.log(x,y)
+        }
+        f0(1)/* 传参赋值给第一个 ，第二个未定义显示undefine*/
+    </script>
+</body>
+</html>

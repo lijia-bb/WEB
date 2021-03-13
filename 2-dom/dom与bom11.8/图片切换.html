@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 300px;
+            height: 300px;
+            border: 1px solid grey;
+            box-shadow: 2px 2px gray;
+            
+        }
+       li img{
+            width: 150px;
+            height: 150px;
+        }
+        li{
+            list-style: none;
+            float: left;
+           
+        }
+        ul{
+            height: 200px;
+            text-align: center;
+           
+        }
+        #box{
+            width: 600px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -200px;
+            margin-left: -200px;
+            border: 1px solid gray;
+            text-align: center;
+            box-shadow: 2px 2px gray;
+            
+            
+        }
+        #bottom{
+            margin-top: 3px;
+            text-align: center;
+            border-top: 1px solid black;
+            height: 200px;
+            /* margin-left: 2px; */
+        }
+        #bottom li{
+            height: 200px;
+            
+           width: 199px;
+            text-align: center;
+            line-height: 340px;
+            border-right: 1px solid gray;
+        }
+        #bottom li :last-child{
+            border-right: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="top">
+                 <img src="image/狗.jpg" alt="">
+        </div>
+        <div id="bottom">
+            <ul>
+                <li><img src="image/狗.jpg" alt="1"> </li>
+                <li><img src="image/草莓.jpg" alt="2"> </li>
+                <li><img src="image/狮子.jpg" alt="3"> </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var oimg=document.getElementById("bottom").getElementsByTagName("img")
+        var oto=document.getElementById("top").getElementsByTagName("img")[0]
+        for(i=0;i<oimg.length;i++)
+        {
+            oimg[i].onmouseover=function(){
+                var x=this.getAttribute("src")
+                // console.log(i)
+                oto.setAttribute("src",x)
+            }
+        }
+    </script>
+</body>
+</html>

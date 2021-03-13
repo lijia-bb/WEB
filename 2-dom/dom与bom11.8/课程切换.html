@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -200px;
+            margin-left: -200px;
+            border: 1px solid gray;
+        }
+        #top{
+            background-color: gray;
+            color: white;
+            width: 400px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+        #top li{
+            float: left;
+            list-style: none;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            margin-left: 65px;
+        }
+      
+        #buttom div{
+            display: none;
+            width: 100px;
+            margin: 0 auto;
+        }
+        #buttom .active{
+            display: block;
+        }
+        #top .color{
+            background-color:yellowgreen;
+            color: white;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="box"> 
+        <div id="top">
+            <ul>
+                <li>课程1</li>
+                <li>课程2</li>
+                <li>课程3</li>
+            </ul>
+        </div>
+        <div id="buttom">
+            <div class="active">
+                <ul>
+                    <li>第一节课</li>
+                    <li>第二节课</li>
+                    <li>都三节课</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>第一节课</li>
+                    <li>第二节课</li>
+                    
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>第一节课</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        var btn=document.getElementById("top").getElementsByTagName("li")
+        console.log(btn)
+        var div=document.getElementById("buttom").getElementsByTagName("div")
+        for(i=0;i<btn.length;i++){
+            btn[i].index=i
+            btn[i].onmouseover=function() {
+                for(i=0;i<btn.length;i++){
+                    btn[i].classList.remove("color")
+                    div[i].classList.remove("active")
+                }
+                div[this.index].classList.add("active")
+                this.classList.add("color");
+                
+            }
+        }
+    </script>
+</body>
+</html>

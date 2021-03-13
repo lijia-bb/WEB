@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        li{
+            
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="oul">
+      
+    </ul>
+ <script>
+     
+     function bank(url){
+      let data=   new Promise(function(resolve,reject){
+            $.get(url,function(res){
+              resolve(res.data)
+        })
+       
+         })
+      return data
+     }
+
+     let data1=bank("./js/data1.json")
+     let data2=bank("./js/data2.json")
+   Promise.all([data1,data2]).then(function(res){
+      
+        for(var i=0;i<res[0].length;i++){
+            for(var j=0;j<res[1].length;j++){
+                if(res[0][i].jrid==res[1][j].jrid){
+                    $(".oul")[0].innerHTML+= `<li>姓名:${res[1][j].userName} 职业:${res[0][i].levelname}</li>`     
+                }
+            }
+        }
+       let newarr= res[0].map(function(val){
+        
+            for(let val2 of res[1]){
+                if(val.jrid==val2.jrid){
+                  return {"姓名":val2.userName,"职业：":val.levelname,"jrid:":val.jrid}
+                }
+            }
+        })
+        console.log(newarr);
+   })
+ </script>   
+</body>
+</html>

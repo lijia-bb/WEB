@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="inner first">hello</div>
+        <div class="inner second">word</div>
+        <div class="inner third">baby</div>
+    </div>
+    <script>
+        // $("<p>2</p>").replaceAll($(".inner"))/* 前面替换后面*/
+        $(".inner").replaceWith($("<p>2</p>"))/* 后面替换前面 */
+    </script>
+</body>
+</html>

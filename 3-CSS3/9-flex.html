@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            display: flex;/* 弹性盒模型 默认主轴*/
+            /* flex-direction: column;交叉轴 */
+            /* flex-direction: row-reverse; *//* 翻转 */
+            /* flex-wrap: wrap; *//* 换行 wrap-reverse 换行翻转 */
+            /* flex-flow: column wrap-reverse; */
+            /* justify-content: center; */
+              /* justify-content: center;水平居中 */
+            /* justify-content: flex-start; */  /* 左对齐 */
+            /* justify-content: flex-end;右对齐 */
+         /*    justify-content: space-between; *//* 两端对齐 */
+         /* align-content: flex-end;多主轴 移动到低端 */
+         height: 1000px;
+        }
+        li{
+            /* width: 200px; */
+            flex-basis: 200px;
+            /* width: 20%; */ /* 刚好铺满 */
+            height: 200px;
+            text-align: center;
+            line-height: 100px;
+            background-color: red;
+            list-style: none;
+            font-size: 45px;
+            /* flex-grow: 1; */
+            /* flex: ; */  /* 缩小放大以及flex-basis  合体 */
+        }
+        li:nth-child(odd){
+            background-color: blue;
+        }
+        li:nth-child(3){
+           /*  order: -1; */ /* 将元素排序 越小的越往前 */
+           /* flex-grow: 3; */
+        }
+        li:nth-child(1){
+            /* flex-grow:1 ; *//* 放大 将剩余空间按照一定的比例放大 */
+        }
+        li:nth-child(2){
+           /*  flex-grow:2 ; */
+
+        }
+        li:nth-child(4){
+           /*  flex-grow:4 ; */
+           align-self: center;
+           flex-shrink: 3;
+        }
+        li:nth-child(5){
+           /*  flex-grow:5 ; */
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+         <li>6</li>
+        <!-- <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li> */ -->
+    </ul>
+</body>
+</html>

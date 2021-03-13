@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <script>
+        // function* foo(){/* 星号 */
+        //     console.log(1);
+        //     yield console.log(2)/* 断点区 */
+        //     console.log(3);
+        //     yield console.log(4)
+        // }
+        // let foo2=foo()
+        // foo2.next()/* 一步一断点 */
+        // foo2.next()
+
+
+        //返回值
+        // function* foo(){
+        //     yield 'hello'
+        //     yield 'word'
+        //     return 'ending'
+        // }
+        // let foo2=foo()
+        // console.log(foo2.next());/* hello dong:false未执行完*/
+        // console.log(foo2.next());/* word  dong:false未执行完*/
+        // console.log(foo2.next());/* ending  dong:ture 已执行完*/
+        
+
+        //传值
+        // function* foo(x){
+        //     let y=2*(yield(x+1));/* yield(x+1)=4 被下一条next影响 */
+        //     // console.log(y)
+        //     let z=yield(y/3);
+        //     return (x+y+z);
+        // }
+        // let foo2=foo(5)
+        // console.log((foo2.next()));/* 6 false */
+        // console.log((foo2.next(4)));/*y=2*4 z=2.6666666 传值影响上一条next()结果 flase */
+        // console.log((foo2.next(2)));/* 5+8+2 */
+
+
+        function getDate(url){
+            $.get(url,function(res){
+                foo2.next(res)
+            })
+        }
+        function* foo(){
+         
+            console.log(yield getDate("./js/a.json"))
+            console.log(yield getDate("./js/b.json"))
+            console.log(yield getDate("./js/c.json"))
+        }
+        let foo2=foo()
+        foo2.next()
+    </script>
+</body>
+</html>

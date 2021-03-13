@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let oMap = new Map();/* 添加键值对（key,vlue） 不允许重复key，可重复valu值  与set有区别  如果重复将之前的覆盖  删除和获取都是填key值*/
+        oMap.set("age",18)/* 添加 */
+        oMap.set("age",20)/* {"age" => 20} */
+        oMap.set("age2",20)/* 成立 */
+        console.log(oMap);
+        console.log(oMap.get("age"));/* 获取 */
+
+
+        let wm=new WeakMap();/* key只能是对象 */
+        wm.set({a:"1"},2)
+        console.log(wm)
+    </script>
+</body>
+</html>

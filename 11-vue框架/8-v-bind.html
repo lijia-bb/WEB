@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        .active{
+            color: red;
+        }
+        .active2{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <div v-bind:class="class1"> hello</div> -->
+        <!-- <div v-bind:class="{active:class1}"> hello</div> --> <!-- active做变量解析 返回值为ture class=active -->
+        <!-- <div v-bind:class="['active2',class1]"> hello</div> 多个类添加 active2做字符串解析  -->
+        <!-- <div v-bind:class="'active2 '+class1"> hello</div>
+        <button @click="clickHandle">butt</button> -->
+
+
+        <div :data-id="class1" :style="{color:color1,fontSize:font}">11  </div>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                // class1:"",
+                class1:"active",
+                class2:false,
+                color1:"red",
+                font:'50px',
+            },
+            methods:{
+                clickHandle(){
+                    // this.class1="active"
+                    this.class2=true
+                }
+            }
+        })
+    </script>
+</body>
+</html>

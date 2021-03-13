@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var a=10;/* 函数作用域 */
+        // var a=11;
+
+        // 不允许重复命名
+        // let a=10;
+        // let a=11;
+        // console.log(a);* 错误 SyntaxError*/
+
+
+        
+          // 函数作用域作用域
+        //   var a=20;
+        //   function foo(){
+        //     console.log(a)/*变量提升 undefined */
+        //     var a=10;
+        //     // console.log(a);/* 10 */
+        //   }
+        //   foo();
+        //   console.log(a)/* 20 */
+        // 块作用域
+        //     let a=20;
+        //   function foo(){
+        //     console.log(a)/*错误 ReferenceError: 暂时性死区 */
+        //     let a=10;
+        //     // console.log(a);/* 10 */
+        //   }
+        //   foo();
+        //   console.log(a)/* 20 */
+        // console.log(window.a);/* 错误 undefined */
+        // if(true){
+        //     var a=20;
+        // }
+        // console.log(a);/* 20 */
+        // if(true){
+        //     let a=20;
+        // }
+        // console.log(a);/* ReferenceEroor*/
+            // if(true){
+            //     let a=10;/* 块级作用域 因为大括号，所以能够引用 */
+            //     function foo(){
+            //         console.log(++a);
+            //     }
+            // }
+            // foo()/* 11 */
+            // foo()/* 12 */
+        
+        // console.log(a);/* 变量提升 undefined */
+        // var a=10;
+        // 不能变量提升或暂时性死区
+        // console.log(a);/* 错误 referenceError */
+        // let a=10;
+
+        // 闭包
+        // function foo(){
+        //     var a=10;
+        //     return function(){
+        //         console.log(++a)
+        //     }
+        // }
+        // var foo2=foo()
+        // foo2()/* 11 */
+        // foo2()/* 12 */
+
+
+
+
+            // 基本数据类型 栈内存存的是值  引用数据类型 栈内存存的是堆里面的地址
+        // const定义常量(不能够被更改堆（地址）) let定义变量  const具有let所有特性
+            // const a=10;
+            // let b=20
+            // b=30
+            // a=20
+            // console.log(a,b)/* 错误 typeError a */
+
+            // const obj={
+            //     age:20
+            // }
+            // const obj2={
+            //     scool:30
+            // }
+            // obj.age=30
+            // console.log(obj)
+
+        //     const obj={
+        //         age:20
+        //     }
+        //    Object.freeze(obj)/* 对象被冻结  并且 */
+        //     obj.age=30
+        //     console.log(obj)
+
+    </script>
+</body>
+</html>

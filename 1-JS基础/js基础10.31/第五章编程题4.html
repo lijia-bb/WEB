@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var cou=0
+        function f(j)
+        {
+         
+            for(i=2;i<j;i++)
+            {
+                var z=j%i
+                if(z==0)
+                {
+                    
+                    return 1;
+                    // break;/* 函数遇到return自动结束 */
+                }
+                
+            }
+
+        }
+        for(x=100;x<=1000;x++){
+            if(f(x)!=1)
+        {
+            cou++;
+            document.write(x+"&nbsp");
+            if(cou%6==0)
+            {
+                document.write("</br>");
+            }
+        }
+        }
+        
+        
+        
+        // for(x=100;x<=1000;x++)
+        // {
+        //     if(f(x))
+        //     {
+        //         document.write(x);
+        //     }
+        // }
+        
+            
+
+       
+    </script>
+</body>
+</html>

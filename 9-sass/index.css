@@ -1,0 +1,107 @@
+@charset "UTF-8";
+/* 定义变量 */
+#div1 {
+  color: red;
+  /* 引用变量 */
+  border: 1px solid black;
+}
+
+#div1 #div2 {
+  color: red;
+  /*嵌套 后代 */
+}
+
+.header {
+  color: red;
+}
+
+.header-title {
+  color: red;
+}
+
+.header:hover {
+  /* &（父元素名字） */
+  color: red;
+  border-left: 1px solid black;
+  border-right: 2px solid black;
+}
+
+/* 定义·一个变量名 为属性名 */
+.div3 {
+  color: red;
+}
+
+.div3 {
+  /* 公用代码块  设置默认值如果出现少传一个参数可以使用默认值*/
+  width: 300px;
+  height: 200px;
+  /* 传值顺序不确定可以借用变量名 */
+  background-color: red;
+}
+
+.div4 {
+  /* 公用代码块  设置默认值如果出现少传一个参数可以使用默认值*/
+  width: 1000px;
+  height: 2000px;
+  /* 引用共用代码块 */
+  background-color: blue;
+}
+
+/* 继承 */
+.div5, .div6 {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+}
+
+.div6 {
+  padding: 10px;
+}
+
+/* 引用另外一个scss文件 */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.div8 {
+  height: 20px;
+}
+
+.div9 {
+  height: 10px;
+  /*乘数只需要一个带px  */
+  width: 50%;
+  /* 取百分比 */
+  background-image: url("/src/dist/XXX.PNG");
+}
+
+.div10 {
+  color: rgba(255, 0, 0, 0.1);
+  /* 更透明 */
+}
+
+/* 列表 */
+.div11 {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  color: blue;
+}
+
+/* map */
+.div12 {
+  background-color: red;
+}
+
+.div12 {
+  /* 与and 或or  非not*/
+  color: blue;
+}
+
+.div13 {
+  color: blue;
+}

@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <!-- 方法一 -->
+        <!-- <input type="button" onclick="document.body.style.backgroundColor='lavender'"
+        value="change" /> -->
+            <!-- 方法二 -->
+        <!-- <script>
+            function change(){
+                document.body.style.backgroundColor="blue"
+            }
+        </script>
+        <input type="button" onclick="change()" value="change"> -->
+        <!-- 方法三 -->
+        <p id="p1">Hello world!</p>
+
+        <script>
+        function ChangeText()
+        {
+        document.getElementById("p1").innerHTML="New text!";
+        }
+        </script>
+
+        <input type="button" onclick="ChangeText()" value="Change text">
+    </body>
+</html>

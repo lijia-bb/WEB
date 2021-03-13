@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+        /* #div1{
+            font-size: 0;
+        } */
+    </style>
+</head>
+<body>
+    <div id="di1">
+        <h1>hello</h1>
+        <h1>
+            word
+        </h1>
+    </div>
+    <script>
+        var dv=document.querySelector("#di1")
+        console.log(dv.childNodes[0].nodeType);
+        console.log(dv.childNodes[1].nodeValue);
+        console.log(dv.children)/* 返回html元素 */
+        console.log(dv.hasChildNodes())
+        for(i=0;dv.childNodes.length;i++)
+        {
+            if(dv.childNodes[i].nodeType==1)
+            {
+                console.log(dv.childNodes[i])
+            }
+        }
+    </script>
+</body>
+</html>
