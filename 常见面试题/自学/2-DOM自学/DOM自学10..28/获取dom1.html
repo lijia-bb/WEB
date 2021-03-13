@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="bb">
+        2
+    </div>
+    <button id="add-btn" class="btn"><!-- dom结点 -->
+        add
+    </button>
+    <button class="btn"><!-- dom结点 -->
+        add
+    </button>
+    <button ><!-- dom结点 -->
+        add
+    </button>
+    <script>
+        var num=0
+        // var oB=document.getElementsByTagName("button")/* 通过标签名 */
+        var ob=document.getElementsByClassName("btn")/* 通过class名 */
+        var bdiv=document.getElementById("bb")/* 通过id名 id名不可以重复，如果重复也只是输出第一个*/
+        ob.onclick=function(){
+            console.log("hello")
+            // bdiv.innerText=num++
+           
+            bdiv.innerText=++bdiv.innerText
+            /* bdiv.innerText是字符串，由于++存在才导致了变成了数值 */
+          
+        }
+        console.log(bdiv.innerText)
+
+
+        // console.log(ob)
+    </script>
+</body>
+</html>

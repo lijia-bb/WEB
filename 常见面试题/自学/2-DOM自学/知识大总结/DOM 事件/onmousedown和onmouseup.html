@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        hahahha
+    </div>
+    <div class="box" onmousedown="blue()" onmouseup="th()" onclick="bak()">
+        把鼠标放上来
+    </div>
+    <script>
+        var box=document.querySelector(".box")
+        function blue(){
+            box.style.backgroundColor="blue"
+            box.innerHTML="鼠标点击了"
+        }
+        function th(){
+            box.innerHTML="thankyou"
+            box.style.backgroundColor="green"
+        }
+        function bak(){
+            box.style.backgroundColor="yellow"
+        }
+    </script>
+</body>
+</html>

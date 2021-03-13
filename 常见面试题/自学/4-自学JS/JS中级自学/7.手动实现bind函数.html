@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Function.prototype.bind2=function(str){
+        //     console.log(str);
+        //     console.log(this)
+        //     var thi=this
+        //     return function(){
+        //         thi.call(str)
+        //     }
+        // }
+        // function foo(st){
+        //     console.log(this.name+st)
+        // }
+        // var obj={
+        //     name:"xiaoming"
+        // }
+        // var foo2=foo.bind2(obj)
+        // console.log(foo2())
+
+
+        Function.prototype.bind2=function(){
+           var thsar=arguments
+           var thispra=Array.prototype.splice.call(arguments,1)
+            console.log(thispra)
+            var thi=this
+            return function(){
+                // for(i=1;i<thsar.length;i++)
+                // {
+                //     if(i>1)
+                //     {
+                //         thsar[i]=thsar[i-1]+thsar[i]
+                //     }            
+                  
+                // }
+                // var the=thsar.splice(1,thsar.length-2)/* 不能够使用splice因为argument不是数组，只是伪数组 */
+                // thi.apply( thsar[0],[thsar[thsar.length-1]])
+                thi.apply(thsar[0],thispra)
+               
+            }
+        }
+        function foo(st,str1){
+            console.log(this.name+st+str1)
+        }
+        var obj={
+            name:"xiaoming"
+        }
+        var foo2=foo.bind2(obj,"hello","bab")
+        foo2()
+
+    </script>
+</body>
+</html>

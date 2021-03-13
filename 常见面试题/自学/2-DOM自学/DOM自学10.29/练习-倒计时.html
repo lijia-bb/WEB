@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .box {
+           height: 300px;
+           width: 300px;
+           background-color: #dddddd;
+           position: absolute;
+           left: 50%;
+           top: 50%;
+           margin-top: -150px;
+           margin-left:-150px;
+           text-align: center;
+           
+       }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1 id="num">100</h1>
+        <button id="btn">开始</button>
+        
+    </div>
+    <script>
+        var oNum=document.getElementById("num")
+        var oBtn=document.getElementById("btn")
+        var isStop =true
+        var fun=null
+        // 按钮绑定事件
+        oBtn.onclick=function(){
+            isStop=!isStop
+            if(isStop){
+                oBtn.innerText="开始"
+                 clearInterval(fun)  
+            }
+            else
+            {
+             fun=setInterval(function(){
+                oNum.innerText--
+                
+            },1000)
+            /* 点击一次产生一次函数，点击多次就会产生多个函数，
+            也就会引起倒计时加快 */
+            oBtn.innerText="暂停"
+            }
+        }
+    </script>
+</body>
+</html>

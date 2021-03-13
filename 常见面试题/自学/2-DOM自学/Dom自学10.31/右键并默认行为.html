@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+           
+            background-color:bisque;
+          
+            width: 100px;
+            height: 100px;
+            display: none;/* 初始不显示 */
+            position: fixed;
+        }
+        #BX{
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="BX">
+        <div id="box">
+            <ul>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+            </ul> 
+    </div>
+    <!-- </div>
+    <div id="box">
+            <ul>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+            </ul> 
+    </div> -->
+    <script>
+        var oBOX =document.getElementsByTagName("div")
+        
+            oBOX[0].oncontextmenu = function(e){/* 绑定右键事件   */
+            console.log(e.clientX,e.clientY)
+            oBOX[1].style.display='block'
+            
+            oBOX[1].style.top=e.clientY+"px"
+            oBOX[1].style.left=e.clientX+"px"
+            e.preventDefault();/* 阻止默认行为 */
+            // document.write(e.clientX+"&nbsp",e.clientY)
+            
+        }
+
+    </script>
+</body>
+</html>

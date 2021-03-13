@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color:aqua ;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+        var oBox=document.getElementById("box")
+        oBox.onclick=function (e){
+            // 当前页面跳转，点击后之前页面不存在
+            window.location.href="https://www.hao123.com/?tn=88093251_74_hao_pg"
+            // 点击以后当前页面保留
+            window.open="https://www.hao123.com/?tn=88093251_74_hao_pg"
+        }
+    </script>
+</body>
+</html>

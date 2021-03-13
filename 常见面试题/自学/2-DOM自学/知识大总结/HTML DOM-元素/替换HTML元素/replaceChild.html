@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <div class="d1">
+            <div class="p1">
+             1
+            </div>
+            <div class="p2">
+                2
+            </div>
+        </div>
+        <script>
+            var d1=document.querySelector(".d1")
+            var p1 = document.querySelector(".p1")
+            var p2 = document.querySelector(".p2")
+            var newI=document.createElement("div")
+            var newT= document.createTextNode("love")
+            newI.appendChild(newT)
+            d1.replaceChild(newI,p1)
+        </script> 
+
+    </body>
+</html>

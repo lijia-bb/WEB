@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <div class="div1">
+            div1 <button class="up">向上</button>  <button class="down">向下</button>
+        </div>
+        <div class="div2">
+            div2 <button class="up">向上</button>  <button class="down">向下</button>
+        </div>
+        <div class="div3">
+            div3 <button class="up">向上</button>  <button class="down">向下</button>
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector(".box")
+        var up = document.querySelectorAll(".up")
+        console.log(up)
+        var down = document.querySelectorAll(".down")
+        for(i=0;i<up.length;i++)
+        {
+            up[i].onclick= function (){
+                var parent=this.parentElement;
+                var preparent = parent.previousElementSibling;
+                // if(preparent=null)
+                // {
+                //     box.insertBefore(parent,parent)
+                // }
+                // else
+                // {
+                    if(preparent){
+                box.insertBefore(parent,preparent)
+                    }
+                    else
+                    {
+                        alert("到顶了")
+                    }
+                // }
+            }
+        }
+        for(i=0;i<down.length;i++)
+        {
+            down[i].onclick= function (){
+                var parent=this.parentElement;
+                var nextparent = parent.nextElementSibling;
+                if(nextparent)
+                {
+                box.insertBefore(nextparent,parent)
+                }
+                else
+                {
+                    alert("到底了")
+                }
+            }
+        }
+
+        // var div2 = document.querySelector(".div2")
+        // var Btn2 = document.querySelector(".div2").querySelectorAll("button")
+        // var div3 = document.querySelector(".div3")
+        // var Btn3 = document.querySelector(".div3").querySelectorAll("button")
+        // Btn1[0].onclick =function (){
+        // box.insertBefore(div1,div1.previousSibling)
+        // }
+        // Btn1[1].onclick =function (){
+        // box.insertBefore(div1.nextSibling,div1)
+        // }
+        // Btn2[0].onclick =function (){
+        // box.insertBefore(div2,div2.previousSibling)
+        // }
+        // Btn2[1].onclick =function (){
+        // box.insertBefore(div2.nextSibling,div2)
+        // }
+        // Btn3[0].onclick =function (){
+        // box.insertBefore(div3,div3.previousSibling)
+        // }
+        // Btn3[1].onclick =function (){
+        // box.insertBefore(div3.nextSibling,div3)
+        // }
+    </script>
+</body>
+</html>

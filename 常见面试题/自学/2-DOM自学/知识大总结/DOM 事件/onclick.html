@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <!-- <h1 onclick="this.innerHTML='pick'">请点击本段</h1> -->
+        <!-- <h1 onclick="change(this)"> 点击wo</h1> -->
+        <!-- <script>
+            function change(id){
+                id.innerHTML="pick"
+            }
+        </script> -->
+        <!-- <input type="button" onclick="date()" value="点击我" /> -->
+        <input type="button" value="点击我" />
+        <p id="ll"></p>
+        <script>
+            function date (){
+                    date=new Date();
+                    document.querySelector("#ll").innerHTML=date
+                    
+            }
+            document.querySelector("input").onclick=function(){
+                        date()
+                    }
+        </script>
+    </body>
+</html>

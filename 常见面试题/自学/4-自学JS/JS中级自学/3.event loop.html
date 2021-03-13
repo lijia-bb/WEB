@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var a = 10
+        // console.log(a)
+        // alert(a)
+
+        
+        // event loop 事件循环
+        // 主线程 任务队列
+        /* 定时函数 和 Ajax  异步任务 */
+        // var a = 10
+        // setTimeout(function(){
+        //     console.log("hello")
+        // },1000)/* 页面加载到此才算从零开始 */
+        // console.log(a)
+
+        /* 等待主线程任务执行 在执行任务队列 */
+        // var a = 10/* 主线程任务 */
+        // setTimeout(function(){
+        //     console.log("hello")
+        // },0)/* 放入任务队列 */
+        // console.log(a)/* 主线程任务 */
+
+        // function foo2(str){
+        //     setTimeout(function(){
+        //         console.log(str)
+        //     },1000)
+          
+        // }
+        // function foo(x,fun){
+        //   y(x)
+        // }
+
+
+        // 回调函数
+        function foo(x,fun){
+            fun(x)
+        }
+        foo("helo",function(str){
+            setTimeout(function(){
+                console.log(str)
+            },1000)
+           
+        });
+    </script>
+</body>
+</html>

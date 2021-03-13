@@ -1,0 +1,73 @@
+var x=10
+var x
+x仍然是10
+
+对象有两种寻址方法
+name=person.lastname;
+name=person["lastname"];
+
+以下JavaScript 变量均为对象。当您声明一个变量时，就创建了一个新的对象。
+var carname=new String;
+var person= new Object;
+
+var person={
+    function:function{
+        console.log(".....")
+    }
+}
+person.function;输出函数体 person.function()输出函数执行结果
+
+
+var a=1
+delete a//显示false 不定义给window不可删除
+console.log(window.a) //显示1 定义还在window底下
+b=2
+delete b//显示 ture 不加var就是属于window的一个属性，可以直接删除
+
+
+=Date()  //直接输出当下的年月日时间
+Date().getDay()==0时，此时为星期天
+
+ "We are the so-called \"Vikings\" from the north." // \"阻止截断，\转义字符
+
+var x = "John";             
+var y = new String("John");
+(x === y) // 结果为 false，因为 x 是字符串，y 是对象     //不要创建 String 对象。它会拖慢执行速度，并可能产生其他副作用：
+
+字符型变量.constructor	返回创建字符串属性的函数
+
+voteable=(age<18)?"年龄太小":"年龄已达到";// 条件运算符
+
+for (语句1; i<len;语句3 )// 语句一和语句三可以省略，也可以定义多个语句一的赋值操作，语句一定义也就可以在循环之前。语句三可以在循环体实现
+for (;cars[i];)//只要cars[i]存在
+{
+    document.write(cars[i] + "<br>");
+    i++;
+}
+
+var person={fname:"Bill",lname:"Gates",age:56}; 
+	for (x in person){
+		txt=txt + person[x];
+	}//实现遍历对象
+
+break和continue的区别在于break会退出最外层循环后面的循环，不可以执行；而continue只会跳出这一次的循环，后面的循环还可以执行
+
+在JavaScript中，数组是一种特殊的对象类型。 因此 typeof [1,2,3,4] 返回 object。 
+typeof [1,2,3,4]             // 返回 object   
+typeof {name:'John', age:34} // 返回 object
+简单来说 在定义时需要用new来声明的都是对象 比如 new Array（），new Date（），new 对象
+还有一个最特殊的就是null也是对象
+
+constructor 属性返回所有 JavaScript 变量的构造函数。
+"John".constructor                 // 返回函数 String()  { [native code] }
+
+将数字转换成字符串
+String（）
+number类型转成字符串 （num）.toString()
+
+将字符串传换成数值
+Number("3.14")    // 返回 3.14
+Number(" ")       // 返回 0
+Number("")        // 返回 0
+Number("99 88")   // 返回 NaN
+Number(null)      //返回0

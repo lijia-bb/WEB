@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 50px;
+            border-radius: 25px;
+            border: 1px solid black;
+            line-height: 50px;
+            overflow: hidden;
+        
+        }
+
+        #inner {
+            background-color: blue;
+            width: 0px;
+            height: 50px;
+
+        }
+
+        #btn {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="inner">
+            <span>0%</span>
+        </div>
+
+    </div>
+    <button id="btn">
+        开始
+    </button>
+    <script>
+        var oIN = document.getElementById("inner")
+        var obtn = document.getElementById("btn")
+        var obox = document.getElementById("box")
+        var isempty = true
+        var num = 0
+        obtn.onclick = function () {
+
+            isempty = !isempty
+
+            var ti = setInterval(function () {
+                //    console.log(oIN.offsetWidth,obox.offsetWidth,isempty)
+                if (oIN.offsetWidth == (obox.offsetWidth) || (isempty)) {
+
+                    clearInterval(ti)
+                    if (oIN.offsetWidth == obox.offsetWidth) {
+
+                        num = 0
+                        oIN.innerText = num + "%"
+                        oIN.style.width = 0
+
+                    }
+
+                }
+
+                else {
+                    oIN.style.width = oIN.getBoundingClientRect().width + 1 + "px"
+
+                    if ((oIN.offsetWidth < obox.offsetWidth) && (oIN.offsetWidth % 2 == 0)) {
+                        num++
+                        oIN.innerText = num + "%"
+                    }
+                }
+
+            }, 16)
+
+
+        }
+    </script>
+</body>
+
+</html>

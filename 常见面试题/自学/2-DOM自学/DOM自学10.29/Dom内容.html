@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        100
+    </div>
+    <button id="btn">
+       开始
+    </button>
+    <script>
+        
+        var box=document.getElementById("box")
+        var btn=document.getElementById("btn")
+        btn.onclick=function(){
+            // box.innerText="<h1>hello<h1>";/* 连带h1都出现了 */
+            // document.write(box.innerText)
+            // box.innerHTML="<h1>hello<h1>"
+            btn.innerText="暂停"
+            var vv=parseInt(box.innerText)
+            setInterval(function(){
+                box.innerText=vv--
+            
+                
+            },1000)
+            
+        }
+       
+    </script>
+</body>
+</html>

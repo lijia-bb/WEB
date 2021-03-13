@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+       var num=1;
+       var str="hell"
+       console.log(str.__proto__)/* 实例化对象 */
+       String.prototype.fellow =function(){
+           console.log("fellow")
+       }/* 构造函数 */
+       str.fellow()
+    //    console.log(String.prototype)
+    //    console.log(num.constructor==Number)
+   </script> 
+</body>
+</html>

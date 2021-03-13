@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //const定义的变量的值是不能够被更改，除非重新用const定义，但是用const声明的对象可以更改对象的属性，也可以添加元素，但是不能够对整个对象更改
+        //除此之外const声明的数组也可以更改数组里面的元素，也可以添加元素，但是不能够重新对整个数组赋值
+        //但是在同一个作用域不能够出现两个同时用const定义的同名变量 与let相似
+        //而let又限制于不能够出现两次let声明同一变量名
+        //const不能够变量提升
+        //var和let声明过的变量，const不能够更改
+        //const声明过的变量 ，var和let也不能更改，并且const声明的变量，也不能够重新赋值（在同一作用域）
+        const PI=3.14;
+        // const PI=3.16;错误
+        //PI=3.15错误 
+        let e=6
+        const obj={
+            name:"xiaoming"
+        }
+        obj.name="hello"
+        console.log(obj.name)
+        const a=["hello"]
+        a[0]="baby"
+        console.log(a[0])
+        e=9  //正确
+        // let e=8 错误
+        {
+           const PI=3.15
+           let e=8
+           console.log(PI)
+           console.log(e)
+        }
+        console.log(PI)
+        console.log(e)
+        //const x;
+        //x=3.14错误
+    </script>
+</body>
+</html>

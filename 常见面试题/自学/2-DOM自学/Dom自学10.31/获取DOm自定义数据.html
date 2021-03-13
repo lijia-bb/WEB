@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul id="list">
+            <li data-id="test" data-href="http://www.taobao.com">淘宝</li>
+            <li>百度</li>
+            <li></li>
+        </ul>
+        <ul>
+            <li>
+                a
+            </li>
+        </ul>
+    </div>
+    <script>
+        var aList=document.getElementById("list")
+        var aLi = aList.getElementsByTagName("li")
+        console.log(aLi)
+        aLi[0].onclick=function (e){
+            // window.location.href = "https://www.taobao.com"
+            // console.log(this.dataset)
+            // window.location.href=this.dataset.href
+            window.open(this.dataset.href)
+        }
+    </script>
+    
+</body>
+</html>

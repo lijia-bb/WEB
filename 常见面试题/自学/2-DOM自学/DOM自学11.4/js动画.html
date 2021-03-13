@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+       #bix{
+           width: 100px;
+           height: 100px;
+           background-color: blue;
+       }
+   </style>
+</head>
+<body>
+     <div id="bix">
+
+     </div>
+     <script>
+         var Obox = document.getElementById("bix")
+        //  var m=Obox.offsetWidth
+         console.log(m)
+         var tim=null
+         Obox.onmouseover=function(){
+            var th=this
+             var tim=setInterval( function()  {
+                 m+=10
+                //  Obox.style.width=m+"px"/* 不能使用this，BOM：触发事件源this是window的 */
+                 th.style.width=m+"px"
+             }, 16);
+         }
+        
+     </script>
+
+</body>
+</html>

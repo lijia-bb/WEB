@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div">
+        hello
+    </div>
+    <script>
+        // 1.写出下列的输出结果
+        // var x=10;
+        // function test(){
+        //     this.x=20
+        //     console.log(this.x)
+        // }
+        // test()/* 输出结果20 */
+
+        // 2.写出下列输出结果
+        // var name="window"
+        // var obj={
+        //     name:"obj",
+        //     func1:function(){
+        //         console.log(this.name);
+        //         /* 输出obj */
+        //         (function(){
+        //             console.log(this.name)/* 输出window */
+        //         })()
+        //     }
+        // }
+        // obj.func1();
+        
+        
+        //3.写出下列结果
+        // var name="the window"
+        // var object={
+        //     name:"my object",
+        //     getName:function(){
+        //         return this.name;
+        //     }
+        // } 
+        // console.log(object.getName());/* my object */
+        // console.log((object.getName)())/* 加括号而已my object*/
+        // console.log((object.getName=object.getName)())/* 等号赋值给一个变量，相当于获取了一个function the window*/
+        
+        // 4.下列代码中当div的点击事件触发时输出的结果是？
+        // document.getElementById("div").onclick=function (){
+        //     console.log(this)
+            
+        // }
+
+
+        // 5.请输出下列代码运行结果
+        // var name="window"
+        // var obj={
+        //     name:"obj"
+        // }
+        // window.setInterval(function(){
+        //     console.log(this.name)/* 输出结果window */
+        // },300)
+        // window.setInterval(function(){
+        //     console.log(this.name)/* 输出结果obj */
+        // }.call(obj)/* 执行完以后变成undefine，因为没有返回结果 */,300)/* 主线程 */
+        // var foo=function(){
+        //     console.log("hello")
+        // }.call()
+
+
+
+        // 6.请补全下列代码
+        // (function foo(){
+            
+        //     setInterval(function(){
+        //         console.log("hello,word")
+        //     },1000)
+
+        //     //补全此处代码实现每隔一秒输出hello world
+        // }).call()
+        // console.log(foo)/* 未定义 函数没有返回结果因此未定义  */
+        // function foo(){
+        //     return function(){
+        //         console.log("hello,word")
+        //     }
+        // }
+        // window.setInterval(foo(),1000)
+
+
+
+
+
+        // 7.补全下列代码实现 1+2+3+4
+        //方法一
+        // function add(c,d){
+        //     this. a=1
+        //     this. b=2;
+            
+        //     return this.a+this.b+c+d
+        // }
+        // console.log(add(3,4));
+        // 方法二
+        // function add(c,d)
+        // {
+        //     //  this.a=1
+        //     // this.b=2
+        //     a=1
+        //     b=2
+        //     return this.a+this.b+c+d
+        // }
+        // console.log(add.bind(this,3,4)())
+        //方法三
+        // function add(c,d)
+        // {
+        //     //  this.a=1
+        //     // this.b=2
+        //     // a=1
+        //     // b=2
+        //     return this.a+this.b+c+d
+        // }
+        // var a=1
+        // var b=2
+        // console.log(add(3,4))
+          
+
+
+
+
+
+        //8.写出下列输出结果
+    //     function f(){
+    //         return this.a
+    //     }
+    //     var g=f.bind({a:"azerty"});
+    //     console.log(g())/* 输出azerty */
+    //     var h=g.bind({a:"yoyo"});/* 输出azerty */
+    // //    var  h=f.bind({a:"azerty"}).bind({a:"yoyo"})
+    //     console.log(h())
+    //     var o={a:37,f:f/* f方法赋值给f */,g:g/* g方法赋值给g */,h:h/* hfangfa赋值给h */} /* 在赋值之前其实方法已经绑定完毕了，o.f()只不过调用的只是这个方法，更改不了里面的值 */
+    //     console.log(o.f(),o.g(),o.h())/* 37 azerty g已经绑定好了 azerty 同理*/
+
+
+        //9.补全代码
+    //    方法一
+        // var o={
+        //     prop:37,
+        //     f:inde
+        // }
+        // function inde(){
+        //     return this.prop
+        // }
+        // console.log(o.f())/* 使其输出结果为37 */
+    //  方法二
+    //  var o={
+    //         prop:37,
+           
+    //     }
+    //     function inde(){
+    //         return this.prop
+    //     }
+    //     o.f=function(){
+    //        return inde.bind(o)()
+    //     }
+    //     console.log(o.f())/* 使其输出结果为37 */
+
+        //10.用call 或applay 实现bind 方法
+        Function.prototype.bind2=function(){
+            return Function.prototype.bind()
+        }
+        var obj={
+            a:1
+        }
+        function foo(){
+            return this.a
+        }
+        console.log(foo.bind2())
+    </script>
+</body>
+</html>

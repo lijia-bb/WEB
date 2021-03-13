@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //在同一作用域中 let不能够声明两个同名的变量
+        //在同一作用域中let声明过的变量，var不能够声明变量名一样的，相反var声明过的let也不能声明
+        //通过let声明的变量不会出现变量提升
+        //let一旦声明并且赋值成功，在之后同一作用域中就不能够更改，不能够被改动
+        //letjinjin作用本作用域，不会跨作用域，不会像var能够随时改动变量
+        var x=6
+        {
+            let x=10;
+            x=0
+            document.write(x)
+        }
+        console.log(x)
+        var i=7
+        for(var i=0;i<9;)
+        {
+            i++
+        }
+        console.log(i);
+        let j=10
+        for(let i=0;i<8;i++){
+
+        }
+        console.log(j)
+    </script>
+</body>
+</html>
