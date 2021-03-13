@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--  -->
+    <script>
+        // 严格模式必须显式声明
+
+        'usu strict'
+        // var a=3;
+        // console.log(a);
+
+
+        /* this不允许指向window */
+        'use Strict'
+        // function foo(){
+        //     console.log(this.a)
+        // }
+        // foo()
+
+        /* 不允许参数重名 */
+        // 'use strict'
+        // function foo(a,a)
+        // {
+        //     console.log(a);
+        // }
+        // foo(1,2)
+
+        // 不允许使用with
+        // var obj={
+        //     age:18
+        // }
+        // with(obj){/* 划分作用域 */
+        //     console.log(age);
+        // }
+
+        // 不允许使用arguments.callee()
+        // 'use strict'
+        // var num=1;
+        // function foo(a){
+           
+        //     console.log(num++);
+        //     if(num<10)
+        //     {   
+        //     // return foo()
+        //     arguments.callee()/* 递归 */
+        //     }
+           
+        // }
+        // foo()
+
+        // 只在单独作用域中起作用
+        function foo(){
+            'use strict'
+        }
+        foo()
+        a=10
+        console.log(a);
+    </script>
+</body>
+</html>

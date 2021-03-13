@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+            <li>d</li>
+            <li>f</li>
+        </ul>
+    </div>
+    <script>
+        var aLi =document.getElementsByTagName("li")
+        for(i=0;i<aLi.length;i++){
+            aLi[i].index=i;/* 添加属性，方法还可调用属性 */
+            aLi[i].onmousemove=function() {
+                document.write(this.innerText)
+                document.log(i)/* 此时输出结果为5 并非索引 */
+            }
+        }
+    </script>
+</body>
+</html>

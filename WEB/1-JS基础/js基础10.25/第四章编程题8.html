@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // （i/100）%10取十位的数字
+        // toString.split()将字符串转换成数组
+        // for(i=1000;i<10000;i++)
+        // {
+        //     var x=i%13
+        //     var a=Math.floor(i/1000);
+        //     var b=Math.floor((i-a*1000)/100);
+        //     var c=Math.floor((i-a*1000-b*100)/10)
+        //     var d=Math.floor(i-a*1000-b*100-c*10)
+        //     var f=b+c
+        //     if(x==0&&f==a)
+        //     document.write(i+"<br/>")
+
+        //  }
+        for(i=1000;i<10000;i++)
+        {
+            i.toString.split("");
+            var a=i.shift();
+            document.write(i.shift());
+            // var b=i.shift();
+            // document.write(i+a);
+            // var c=i.shift();
+            // document.write(i+c);
+
+        }
+       
+
+        
+    </script>
+</body>
+</html>

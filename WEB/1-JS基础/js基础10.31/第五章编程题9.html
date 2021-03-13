@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var z=8;
+        var sum=0;
+        function boo(n){
+            if(n==z){
+               return ++sum;
+            }
+        }
+        for(i=0;i<3;i++)
+        {
+           var x= parseInt( Math.random()*9+1)
+           document.write('随机数为：'+x+"&nbsp\n");
+           boo(x);
+           document.write('8直到现在出现的次数为：'+sum+"<br />");
+        }
+        var all=sum/3
+        document.write("获胜率为:"+all);
+       
+    </script>
+</body>
+</html>

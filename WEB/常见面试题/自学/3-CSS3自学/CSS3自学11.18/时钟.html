@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px dashed black;
+            margin: 200px auto;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            border-radius: 100px;
+            position: relative;
+            transform: rotate(180deg);
+
+        }
+       .kd li{
+           list-style:none;
+           width: 4px;
+           height: 8px;
+           background-color: black;
+           position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%);
+          transform-origin:0 100px;
+       }
+       .kd li:nth-child(5n+1){
+            height: 12px;
+       }
+       .second{
+           width: 2px;
+           height: 60px;
+           background-color: green;
+           
+       }
+       .minute{
+           width: 3px;
+           height: 30px;
+           background-color: blue;
+         
+       }
+       .hour{
+           background-color: red;
+           width: 4px;
+           height: 18px;
+           
+       }
+       .second,.hour,.minute{
+           position: absolute;
+           left: 50%;
+           top: 50%;
+           transform: translateX(-50%);
+           transform-origin: top center;
+       }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1">
+           <ul class="kd"> </ul>
+            <div class="second">
+
+            </div>
+            <div class="minute">
+
+            </div>
+            <div class="hour">
+
+            </div>
+            </div>
+    </div>
+    <script>
+        var kd=document.getElementsByClassName("kd")[0]
+        var second=document.querySelector(".second")
+        var minute=document.querySelector(".minute")
+        var hour=document.querySelector(".hour")
+        var str=""
+        for(var i=0;i<60;i++)
+        {
+            var de=i*6
+            str+="<li style='transform:rotate("+i*6+"deg)'></li>"
+            
+        }
+        kd.innerHTML = str;
+       
+        setInterval(function() {
+            var timer = new Date();
+            var nowsecond= timer.getSeconds()*6;
+            var nowminute= timer.getMinutes()*6;
+            var nowhour= timer.getHours()*30;
+            second.style.transform= "rotate("+nowsecond+"deg)"
+            minute.style.transform= "rotate("+nowminute+"deg)"
+            hour.style.transform= "rotate("+nowhour+"deg)"
+        }, 1000);
+       
+        // console.log(nowsecond)
+    </script>
+</body>
+</html>

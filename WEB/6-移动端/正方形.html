@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 没有文字1 */
+        /* .box{
+            width: 50vw;
+            hight：50vw；
+        } */
+
+
+        /* 没有文字2 */
+        /* .box{
+            width: 50vw;
+           
+        }
+        .div1{
+            background-color: red;
+            height: 0;
+            padding-top: 100%;
+        } */
+
+        /* 有文字 */
+        .box{
+            height: 0;/* 本身文字有高度 */
+            width: 50vw;
+            padding-bottom: 50%;/* 向上没有位置挤不出去 */
+           /*  padding-top: 50%; */  /* 会被挤出来padding占用了正方形 */
+            background-color: red;
+            position: relative;
+        }
+        .div1{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+           /*  background-color: red;
+            height: 0;
+            padding-top: 100%; */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="div1">
+            hello
+        </div>
+    </div>
+    
+</body>
+</html>

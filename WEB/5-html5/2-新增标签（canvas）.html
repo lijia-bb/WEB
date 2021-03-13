@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #can{
+            background-color: black;
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- <audio controls="controls" src=""></audio>
+    <video src="src"></video> -->
+    <canvas id="can" width="600" height="400"><!-- 仅在属性增加高宽，不style，那样会造定位不准 -->
+
+    </canvas>
+    <script>
+        var oCa=document.querySelector("#can")
+        var context=oCa.getContext("2d")
+        context.lineWidth=10;
+        context.strokeStyle="white"
+        context.beginPath();/* 开始绘画 */
+        context.moveTo(20,20);/* 绘画开始点 */
+        context.lineTo(100,100);/* 绘画结束点 */
+        context.stroke();/* 执行绘画功能 */
+    </script>
+</body>
+</html>

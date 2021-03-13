@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let school =Symbol("key")/* 对象循环不显示 */
+        console.log(school);
+
+        let obj={
+            age:20,
+            name:"li"
+        }
+        obj[school]="heida";
+        console.log(obj)
+
+        for(let key in obj)
+        {
+            console.log(key)/* 只有 age name */
+        }
+
+        //取走
+        console.log(obj[school])
+    </script>
+</body>
+</html>

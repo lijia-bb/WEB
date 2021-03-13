@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #img .active{
+            display: block;
+        }
+        #img li{
+            display: none;
+        }
+        #box{
+            width: 500px;
+            height: 375px;
+            position: relative;
+           margin: 0 auto;
+           border: 1px solid gray;
+           box-shadow: 2px 2px gray;
+
+        }
+        #bottom{
+            position: absolute;
+            bottom: 5px;
+            width: 500px;
+            z-index: 100px;
+            color: white;
+        }
+        #bottom li{
+            float: left;
+            list-style: none;
+            background-color: gold;
+            width: 40px;
+            height: 40px;
+            color: white;
+            margin-left: 2px;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 40px;
+        }
+        #left{
+            float: left;
+        }
+        #right{
+            float:right;
+        }
+      #bottom  .color{
+           background-color: burlywood;
+           color:black;
+       }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="img">
+            <ul>
+                <li class="active"><img src="image/狗.jpg" alt=""> </li>
+                <li><img src="image/狮子.jpg" alt=""> </li>
+                <li><img src="image/草莓.jpg" alt=""> </li>
+            </ul>
+          </div>
+          <div id="bottom">
+              <div id="left">
+                 <ul>
+                     <li>&lt;</li>
+                     <li>&gt;</li>
+                 </ul>
+              </div>
+              <div id="right">
+                  <ul>
+                      <li>1</li>
+                      <li>2</li>
+                      <li>3</li>
+                     
+                  </ul>
+              </div>
+          </div>
+    </div>
+   <script>
+       var bR=document.getElementById("right").getElementsByTagName("li")
+       var aimg=document.getElementById("img").getElementsByTagName("li")
+       var bL=document.getElementById("left").getElementsByTagName("li")
+       var obox=document.getElementById("box")
+       var start=null
+       console.log(obox)
+       var num=0
+       function addmove(number){
+        for(j=0;j<bL.length;j++){
+                   bL[j].classList.remove("color")
+                  
+               }
+            for(j=0;j<bR.length;j++){
+                aimg[j].classList.remove("active")
+                bR[j].classList.remove("color")
+            }
+               bR[Math.abs(number)].classList.add("color")
+               aimg[Math.abs(number)].classList.add("active")
+             
+       }
+       for(i=0;i<bR.length;i++){
+           bR[i].index=i
+           bR[i].onmouseover=function (){
+               for(j=0;j<bR.length;j++){
+                   aimg[j].classList.remove("active")
+                   bR[j].classList.remove("color")
+               }
+            aimg[this.index].classList.add("active")
+            this.classList.add("color")
+            num=this.index
+           }
+       }
+      
+           bL[0].onclick = function(){
+               num=--num
+               num=(num)%bR.length
+               addmove((num)%bR.length)
+               this.classList.add("color")
+            // for(j=0;j<bL.length;j++){
+            //        bL[j].classList.remove("color")
+                  
+            //    }
+            // for(j=0;j<bR.length;j++){
+            //     aimg[j].classList.remove("active")
+            //     bR[j].classList.remove("color")
+            // }
+            //    bR[Math.abs(num)].classList.add("color")
+            //    aimg[Math.abs(num)].classList.add("active")
+            //    this.classList.add("color")   
+           }
+           bL[1].onclick = function(){
+               num=++num
+               num=(num)%bR.length
+               addmove(num)
+            // for(j=0;j<bL.length;j++){
+            //        bL[j].classList.remove("color")
+                  
+            //    }
+            //    for(j=0;j<bR.length;j++){
+            //        aimg[j].classList.remove("active")
+            //        bR[j].classList.remove("color")
+            //    }
+            //         bR[num].classList.add("color")   
+            //    aimg[Math.abs(num)].classList.add("active")
+               this.classList.add("color")
+           }
+           function play(){
+            start=setInterval (function (){
+            num=++num
+               num=(num)%bR.length
+               addmove(num)
+            // for(j=0;j<bL.length;j++){
+            //        bL[j].classList.remove("color")
+                  
+            //    }
+            //    for(j=0;j<bR.length;j++){
+            //        aimg[j].classList.remove("active")
+            //        bR[j].classList.remove("color")
+            //    }
+            //         bR[num].classList.add("color")   
+            //    aimg[Math.abs(num)].classList.add("active")
+           },1000)
+           }
+           play()
+           obox.onmouseover=function (){
+               clearInterval(start)
+           }
+           obox.onmouseout=function (){
+               play()
+        //     start=setInterval (function (){
+        //     num=++num
+        //        num=(num)%bR.length
+        //        addmove(num)
+        //     // for(j=0;j<bL.length;j++){
+        //     //        bL[j].classList.remove("color")
+                  
+        //     //    }
+        //     //    for(j=0;j<bR.length;j++){
+        //     //        aimg[j].classList.remove("active")
+        //     //        bR[j].classList.remove("color")
+        //     //    }
+        //     //         bR[num].classList.add("color")   
+        //     //    aimg[Math.abs(num)].classList.add("active")
+        //    },1000)
+           }
+       
+   </script>
+</body>
+</html>

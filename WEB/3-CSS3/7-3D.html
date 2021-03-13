@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* 增加立体感 相当于与幕布距离 */
+            perspective: 1000px;
+            /* 视角 */
+            perspective-origin: left top;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px dashed black;
+            margin: 100px auto;
+        }
+        .div1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transform-style: preserve-3d;
+        }
+        .div1:hover{
+            transform: rotateY(180deg);
+            transition: all 3s ease;
+        }
+        .div2{
+            width: 200px;
+            height: 200px;
+            background-color:blue;
+            transform: translateZ(5px);/* 视角垂直于屏幕距离 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="div1">
+            <div class="div2"></div>
+        </div>
+        <!-- <div class="div2"></div> -->
+    </div>
+</body>
+</html>

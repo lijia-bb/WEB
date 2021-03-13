@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <script src="./ajax-get封装.js"></script>
+    </head>
+    <body>
+        <script>
+            var dbApi = "https://m.douban.com/rexxar/api/v2/subject_collection/tv_domestic/items?start=0&count=18";
+            var baseUrl = "https://bird.ioliu.cn/v2";
+            ajaxGet("https://bird.ioliu.cn/v2?url="+dbApi,function fun(res){
+                console.log(res)
+            })
+        </script>
+    </body>
+</html>

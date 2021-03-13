@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="./js/vue.js"></script>
+    <style>
+        .active1 {
+            background-color: pink;
+        }
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="搜索名称" v-model.lazy="sear">
+            </div>
+            <button class="btn btn-default" @click.prevent="search">搜索</button>
+        </form>
+
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="商品名称" v-model.lazy="Na">
+                    <input type="text" class="form-control" placeholder="商品价格" v-model.lazy="Pr">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" @click="add">添加</button>
+                    </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+
+
+
+        <table class="table table-condensed">
+            <tr>
+                <td>#</td>
+                <td>商品名称</td>
+                <td>商品价格</td>
+                <td>操作</td>
+            </tr>
+            <tr v-for="(item,index) in arr" @click="Tclick(item)" v-bind:class="{active1:item.check}" v-cloak>
+                <td><input type="checkbox" v-bind="{checked:item.check}"></td>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td> <button type="submit" class="btn btn-default" @click.stop="aRemove(item.id)">删除</button></td>
+            </tr>
+            <tr>
+
+                <td colspan="2">总价</td>
+                <td>{{num}}</td>
+                <td> <button type="submit" class="btn btn-default" @click.prevent="oRmove">删除选中</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: ".container",
+            data: {
+
+                arr: [
+                    {
+                        id: 100,
+                        name: "衣服",
+                        price: 12,
+                        check: false,
+                    },
+                    {
+                        id: 101,
+                        name: "裤子",
+                        price: 12,
+                        check: false,
+
+                    },
+                    {
+                        id: 102,
+                        name: "鞋子",
+                        price: 12,
+                        check: false,
+                    },
+                    {
+                        id: 103,
+                        name: "袜子",
+                        price: 12,
+                        check: false,
+
+                    },
+                ],
+                sear: "",
+                Na: "",
+                Pr: "",
+                /* num:0 */
+               
+            },
+            computed:{
+                num(){
+                     all=0;
+                    for( i=0;i<this.arr.length;i++){/* 过滤 */
+                        
+                        if (this.arr[i].check) {
+                           
+                           all+=this.arr[i].price
+                        }
+                    }
+                    return all
+                }
+            },
+            methods: {
+                //添加
+                add() {
+
+                    // this.arr.push({ name: this.Na, price: this.Pr });
+                    Vue.set(this.arr,this.arr.length,{ name: this.Na, price: this.Pr })/* 不能直接在数组上直接修改或添加特定某个值， 否则会失去双向绑定，但是可以使用Vue.set*/
+                    this.Na = "",
+                    this.Pr = ""
+
+                },
+                //单个删除
+                aRemove(itemId/* , item */) {
+                    // this.arr.splice(item,1)
+                    // console.log(item.check)
+                    // if(item.check){
+                    //     this.num-=item.price;
+                    // }
+                    // item.check=false
+                    let newArr = this.arr.filter(function (item, key, arr) {/* 过滤 */
+                        if (itemId != item.id)
+                            return true
+                    })
+                    
+                    this.arr = newArr
+                },
+                //多个删除
+                oRmove() {
+                    let newArr = this.arr.filter((item, key, arr) => {/* 过滤 */
+                        console.log(item,item.check)
+                        if (!item.check) {
+                            return true
+                        }
+                    })
+                    console.log(newArr)
+                    this.arr=newArr
+
+                },
+
+                //搜索
+                search() {
+                    let newArr = this.arr.filter((item, key, arr) => {/* 过滤 */
+
+                        if (item.name.includes(this.sear)) {
+                            return true
+                        }
+                    })
+                    console.log(this.sear);
+                    this.arr = newArr
+                },
+                //选中
+                Tclick(item){
+                    /* if (!item.check) {
+                        item.check = true
+                    }
+                    else {
+                        item.check = false
+                    } */
+                    item.check=!item.check
+                   
+                        // if (item.check) {
+                        //    this.num+=item.price;
+                        // }
+                        // else{
+                        //     this.num-=item.price;
+                        // }
+                    
+
+                }
+
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

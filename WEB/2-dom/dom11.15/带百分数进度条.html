@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 100px;
+            border:1px solid pink;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+        #div{
+            width: 0px;
+            height: 100px;
+            line-height: 100px;
+            background-color:pink;
+        }
+        #btn{
+            width: 100px;
+            height: 50px;
+            margin-top: 5px;
+            border: 1px solid gray;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+       <div id="div">
+           0%
+       </div>
+    </div>
+    <div id="btn">
+            开始
+    </div>
+    <script>
+        var div =document.querySelector("#div")
+        var btn = document.querySelector("#btn")
+        var num =0
+        var isempty=false
+        btn.onclick = function () {
+            isempty=!isempty
+            if(isempty)
+            {
+           time= setInterval (function (){
+               console.log("hha")
+               btn.innerText="开始"
+                div.style.width = div.offsetWidth + 1 +"px"
+                if(div.offsetWidth%4==0 )
+                {
+                    div.innerText=++num +"%"
+                }
+                if(div.offsetWidth==400)
+                {
+                    clearInterval(time)
+                    btn.innerText="选择重新开始"
+                   
+                }
+                if(div.offsetWidth==400)
+                {
+                    div.style.width=0
+                    num =0
+                    div.innerText=num+"%"
+                    btn.innerText="开始"
+                    
+                }
+            },16)
+            }
+            else
+            {
+                btn.innerText="暂停" 
+                clearInterval(time)
+            }
+           
+        }
+    </script>
+</body>
+</html>

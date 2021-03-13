@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{num}}
+        <mytest></mytest><!-- 全局组件 -->
+    </div>
+    <div id="app2">
+        {{num}}
+        <mytest></mytest>
+    </div>
+    <script>
+        Vue.component("mytest",{/* 组件名称，组件内容(组件内部只能有一个根元素) */
+            // template:"<h1>hello</h1>",
+            // template:"<h1>hello</h1><h1>word</h1>"/*只显示hello 只能有一个根元素  */
+            template:"<div><h1>hello</h1><h1>word</h1></div>"/* 成立 */
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                num:1,
+            }
+        })
+        new Vue({
+            el:"#app2",
+            data:{
+                num:2,
+            }
+        })
+    </script>
+</body>
+</html>

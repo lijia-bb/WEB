@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div class="div1">
+        <div class="parent">
+            <div class="div1">
+                baby
+                <div class="div2">
+                    ke
+                    <div class="div3">
+                        hello
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        // $(".div1").children(".div2").css("color","red")/* 只能直接获取直接子元素 而不能捕获后代元素例如div3*/
+        // $(".div3").parent(".div2").css("color","red")/* 只能找父级而不能祖先 与childre一样 */
+        // $(".div3").parents(".div1").css("color","red")/* 能够获取多个，并且只要是祖先或者父元素都能捕获到 */
+        // $(".div3").parentsUntil(".parent").css("color","red")
+        $(".div3").closest(".div1").css("color","red")/* 与parents 区别在于 只捕获离自己最近的一个 */
+    </script>
+</body>
+</html>

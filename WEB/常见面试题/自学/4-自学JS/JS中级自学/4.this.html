@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 作用域链
+        // var a=10
+        // function foo2(){
+        //     var a=30
+        //     function foo(){
+        //     //  a =20
+        //     // var a=20;
+        //     console.log(a)/* 就近原则 */
+        // }
+        // foo()
+        // }
+        // // function foo(){
+        // //     //  a =20
+        // //     var a=20;
+        // //     console.log(a)/* 就近原则 */
+        // // }
+        // foo2();
+        // // console.log(a);
+
+        // var a=10
+        // function foo(){
+        //     console.log(a)
+        //     var a=20;/* 变量提升 */
+        // }
+        // foo()/* 输出undifined */
+        
+        // foo();
+        // function foo(){
+        //     console.log("abc")/* 还是能够输出abc  函数提升到foo（）之前 */
+        // }
+
+
+
+            // // var a= 10
+            // console.log(a)
+            // var a=10
+            // function a(){
+            //     console.log(11)
+            // }
+            // // 相当于
+            // var a
+            // function a() {
+            //     console.log(11)
+            // }
+            // console.log(a)/* 函数优先级低于变量定义，但采取就近原则还是输出11 */
+            // a=10
+
+
+
+        // console.log(a)
+        // var a=10
+        // // 相当于
+        // var a
+        // console.log(a)
+        // a=10
+
+        // console.log(a)
+        // var a=function(){
+
+        // }
+        // // 相当于
+        // var a
+        // console.log(a)
+        // a=function(){
+        //    
+        // }
+
+        // 执行上下文 context
+        // console.log(this);
+        // function foo(){
+        //     console.log(this)
+        // }
+        // foo();
+        // var a=10
+        // window.a
+
+
+        // var name = "huahua"
+        // var obj={
+        //    name:"xiaoming" ,
+        //    showName:function(){
+        //        console.log(this.name)
+        //    }
+        // }
+        // obj.showName();
+
+        var name = "huahua"
+        var obj={
+           name:"xiaoming" ,
+           showName:function(){
+            //    var thi=this
+              return function(){
+                console.log(thi.name)
+              } 
+           }
+        }
+        obj.showName()();/* obj.showName()=function(){
+             console.log(this.name)  接着执行的是就是function （）{}（）还是window调用
+             要是想输出对象的name的话，可以在返回值之前加入var thi=this
+        } */
+
+    </script>
+</body>
+</html>

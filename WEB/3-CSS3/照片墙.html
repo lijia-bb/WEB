@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            border: 1px dashed black;
+            transform-style: preserve-3d;
+            
+        }
+        img{
+            width: 200px;
+            height: 200px;
+        }
+        .img1{
+            transform: rotate(45deg);
+        }
+        .img2{
+            transform: rotate(-45deg);
+        }
+        .img1:hover,.img2:hover{
+            
+            transform: translateZ(3px) scale(2);
+            transition: all 3s ease;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="img1"><img src="../image/狗.jpg" alt=""></div>
+        <div class="img2"><img src="../image/狗.jpg" alt=""></div>
+    </div>
+</body>
+</html>

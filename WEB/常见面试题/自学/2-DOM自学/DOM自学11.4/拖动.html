@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+        #inner{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+         <div id="inner">
+
+         </div>
+    </div>
+    <script>
+        var obox=document.getElementsByTagName("body")[0]
+        var oin=document.getElementById("inner")
+        obox.onmouseover=function(e){
+                  obox.X=e.clientX
+                  obox.Y=e.clientY
+                  console.log(obox.X)
+                console.log(obox.Y)
+            oin.onclick=function(){
+                
+            }
+               
+        }
+    </script>
+</body>
+</html>

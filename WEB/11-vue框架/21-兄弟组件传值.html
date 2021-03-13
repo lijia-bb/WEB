@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+     
+        <mytest v-bind:addnum="num"></mytest>
+        <mytest2 @temclick="click2"> </mytest2>
+    </div>
+    <template id="tem">
+            <h1>{{addnum}} </h1>
+    </template>
+    <template id="tem2">
+        <button @click="add">add</button>
+    </template>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                num:0,
+            },
+            methods:{
+                click2(){
+                    this.num++
+                    console.log(this.num);
+                }
+            },
+           components:{
+               mytest:{
+                   props:['addnum'],
+                   template:"#tem"
+               },
+               mytest2:{
+                   template:"#tem2",
+                   methods:{
+                    add(){
+                        this.$emit("temclick");
+                    }
+                   }
+               }
+           }
+        })
+    </script>
+</body>
+</html>

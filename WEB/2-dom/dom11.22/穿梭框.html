@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1,.box{
+            float: left;
+        }
+        #s1{
+            width: 200px;
+            height: 200px;
+        }
+        #s2{
+            margin-left: 10px;
+            width: 200px;
+            height: 200px;
+        }
+        .left,.left-all,.right,.right-all{
+            background-color: gray;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box">
+        <select name="" id="s1" multiple="multiple" >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <div class="left">选中添加到右边</div>
+        <div class="left-all">全部添加到右边</div>
+    </div>
+    <div class="box1">
+        <select name="" id="s2" multiple="multiple">
+            <option value="1">6</option>
+        </select>
+        <div class="right">选中添加到左边</div>
+        <div class="right-all">全部添加到左边</div> 
+     </div>   
+    <script>
+        var op1=document.querySelector("#s1")
+        var op2=document.querySelector("#s2")
+        var left=document.querySelector(".left")
+        var aleft=document.querySelector(".left-all")
+        var right=document.querySelector(".right")
+        var aright=document.querySelector(".right-all")
+        // console.log(op2.length)
+        
+            op1.ondblclick=function(){
+              var option=this.querySelectorAll("option")
+               op2.appendChild(option[this.selectedIndex])
+            }
+            op2.ondblclick=function(){
+              var option=this.querySelectorAll("option")
+               op1.appendChild(option[this.selectedIndex])
+            }
+            left.onclick=function(){
+                var option=op1.querySelectorAll("option")
+                for(i=0;i<option.length;i++)
+                {
+                    if(option[i].selected)
+                    op2.appendChild(option[i]) 
+                }
+              
+            }
+            right.onclick=function(){
+                var option=op2.querySelectorAll("option")
+                for(i=0;i<option.length;i++)
+                {
+                    if(option[i].selected)
+                    op1.appendChild(option[i]) 
+                }
+              
+            }
+            aleft.onclick = function (){
+                var content = op1.innerHTML
+                op2.innerHTML+=content
+                op1.innerHTML=""
+            }
+            aright.onclick = function (){
+                var content = op2.innerHTML
+                op1.innerHTML+=content
+                op2.innerHTML=""
+            }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inp" value="test">
+    <button id="btn">提交</button>
+    <script>
+          //1-创建XMLHttpReques对象
+          var xmlhttp;
+        //浏览器能力测试
+        if (window.XMLHttpRequest)/* chrome */ {
+            xmlhttp = new XMLHttpRequest();
+        }
+        else/* IE5，IE6 */ {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP")
+        }
+
+        //2-向服务器发送请求
+        xmlhttp.open("POST"/* 一般情况获取数据 */, "http://47.92.82.13:4000/insertOneLevel"/* 请求本地文件 */, true/* 异步 */)/* push提交请求 */
+        xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+        xmlhttp.send("levelname=vip2")/* 将请求发送个服务器 */
+
+        //3-接受回调
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.staus == 200) {
+              
+                console.log(JSON.parse(xmlhttp.responseText))
+                // console.log(obj.userName)
+            }
+        }
+
+
+
+        // var btn=document.querySelector("#btn")
+        // var inp=document.querySelector("#inp")
+        // btn.onclick=function(){
+        //     consol.log(inp.value)
+        // }
+    </script>
+</body>
+</html>

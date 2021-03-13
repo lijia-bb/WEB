@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <h1>你爱好的运动是？</h1>
+    <input type="checkbox">足球
+    <input type="checkbox" >排球
+    <input type="checkbox">篮球
+    <input type="checkbox">羽毛球
+    <button id="all">全选</button>
+    <button id="none">全不选</button>
+    <button id="no">反选</button>
+    <script>
+        // for(i=0;i<$(":checkbox").length;i++){
+        //     if($(":checkbox")[i].checked)
+        //     {
+        //         $(":checkbox")[i].attr("checked","checked")
+        //     }
+            
+        // }
+        $("#all").click(function(){
+           
+            $(":checkbox").prop("checked",true);
+            // for(i=0;i<$(":checkbox").length;i++)
+            // {
+            //     $(":checkbox")[i].checked=true
+            // }
+        })
+        $("#none").click(function(){
+           
+            $(":checkbox").prop("checked",false);
+            // for(i=0;i<$(":checkbox").length;i++){
+            //     $(":checkbox")[i].checked=false
+            // }
+       })
+
+
+       $("#no").click(function(){
+        //    for(i=0;i<$(":checkbox").length;i++)
+        //    {
+        //        if($(":checkbox")[i].checked)
+        //       {
+        //         $(":checkbox")[i].checked=false
+               
+        //       }
+        //       else
+        //       {
+        //         $(":checkbox")[i].checked=true
+        //       }
+        //    }
+
+        $(":checkbox").each(function(key,val){
+            // console.log(key,val);
+            if(val.checked)
+            {
+                val.checked=false
+                //$(val).prop("checked",flase)
+            }
+            else
+            {
+                val.checked=true
+            }
+        })
+        
+        
+       })
+
+
+
+    //    var arr=[1,2,3,4,5]
+    //    arr.forEach(function(val/* 值 */,key/* 索引 */,arr/* 整个数组 */)){
+    //        console.log(val,key,arr)
+    //    }
+    </script>
+</body>
+</html>

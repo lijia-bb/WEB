@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function Merge(s1,s2){
+           s1.split();
+           s2.split();
+           if(s1.length<s2.length)/* splice（strat，end） 数组.join("")数组之间不带符号*/
+           {
+               for(i=0;i<s1.length;i++)
+               {
+                  document.write(s1[i])
+                  document.write(s2[i])
+               }
+              
+               for(j=s1.length;j<s2.length;j++)
+               {
+                document.write(s2[j])
+               }
+               
+           }
+           else{
+            for(i=0;i<s2.length;i++)
+               {
+                document.write(s1[i])
+                  document.write(s2[i])
+               }
+               
+               for(j=s2.length;j<s1.length;j++)
+               {
+                document.write(s1[j])
+               }
+           }
+       } 
+       var s0=window.prompt("请输入字符串s1");
+       var ss=window.prompt("请输入字符串s2")
+       Merge(s0,ss)
+    </script>
+</body>
+</html>

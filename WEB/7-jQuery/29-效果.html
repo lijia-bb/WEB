@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button class="hide">hide</button>
+    <button class="show">show</button>
+    <button class="toggle"> toggle</button>
+    <button class="fadein"> fadein</button>
+    <button class="fadeout"> fadeout</button>
+    <button class="fadeto"> fadeto</button>
+    <button class="fadetoggle"> fadetoggle</button>
+    <button class="slideup"> slideup</button>
+    <button class="slidedown"> slidedown</button>
+    <button class="slideToggle"> slideToggle</button>
+    <script>
+        $(".hide").click(function(){
+            // $("div").hide(1000)/* 隐藏 */
+            $("div").hide("fast")
+        })
+        $(".show").click(function(){
+            // $("div").show(2000)/* 显示 */
+            $("div").show("slow")
+        })
+        $(".toggle").click(function(){ 
+            $("div").toggle("slow")/* 切换 包含hide show */
+        })
+        $(".fadein").click(function(){ 
+            $("div").fadeIn("")/* 控制当前元素透明度 从0到1 */
+        })
+        $(".fadeout").click(function(){ 
+            $("div").fadeOut("")/* 控制当前元素透明度 从一到0 */
+        })
+        $(".fadeto").click(function(){ 
+            $("div").fadeTo(1000/* 时间 */,0.5 /* 透明度 *//*,回调函数 function({})  */)/* 切换 包含hide show */
+        })
+        $(".fadetoggle").click(function(){ 
+            $("div").fadeToggle()/* 切换 透明度 */
+        })
+        $(".slideup").click(function(){ 
+            $("div").slideUp()/* 向上滑动 */
+        })
+        $(".slidedown").click(function(){ 
+            $("div").slideDown()/* 向下滑动 */
+        })
+        $(".slideToggle").click(function(){ 
+            $("div").slideToggle()/* 切换 透明度 */
+        })
+    </script>
+</body>
+</html>

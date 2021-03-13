@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var old=window.prompt("输入需要查找的年龄");
+        if(old<14){
+            document.write("儿童");
+        }
+        else if(old>=14&&old<24){
+            document.write("青少年");
+        }
+        else if(old>=24&&old<40){
+            document.write("青年");
+        }
+        else if(old>=40&old<60){
+            document.write("中年");
+        }
+        else if(old>=60){
+            document.write("老年");
+        }
+    </script>
+</body>
+</html>

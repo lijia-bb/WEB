@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 600px;
+            height: 600px;
+            background-color: red;
+        }
+        #box2{
+            width: 400px;
+            height: 400px;
+            background-color:blue;
+        }
+        #box3{
+            width: 200px;
+            height: 200px;
+            background-color:green;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2">
+            <div id="box3"></div>
+        </div>
+    </div>
+   <script>
+       var box1 = document.getElementById("box1")
+       var box2 = document.getElementById("box2")
+       var box3 = document.getElementById("box3")
+       //冒泡
+    //    box1.onclick =function (){
+    //        console.log("box1")
+    //    }
+    // //    box1.onclick =function (){
+    // //        console.log("box1")
+    // //    } 
+    // // 以最后一个onclick为主
+    //    box2.onclick =function (){
+    //        console.log("box2")
+    //    }
+    //    box3.onclick =function (){
+    //        console.log("box3")
+    //    }
+        //捕获
+        box1.addEventListener("click",function(){
+            console.log("box1")
+        },true)/* true 从外向里 */
+        box2.addEventListener("click",function(){
+            console.log("box2")
+        },true)/* 两次事件都被绑定 */
+        box3.addEventListener("click",function(){
+            console.log("box3")
+        },true)
+        box1.addEventListener("click",function(){
+            console.log("box1")
+        },false)/* true 从外向里 */
+        box2.addEventListener("click",function(){
+            console.log("box2")
+        },false)/* 两次事件都被绑定 */
+        box3.addEventListener("click",function(){
+            console.log("box3")
+        },false)
+   </script>
+</body>
+</html>

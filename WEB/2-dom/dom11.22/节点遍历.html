@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <h1>
+            hello
+        </h1> 
+        <h1>
+            word
+        </h1>
+    </div>
+  
+   <script>
+       var bo=document.documentElement
+       function child(x){
+          
+                if(x.hasChildNodes())
+                {
+                    for(var i =0 ;i<x.childNodes.length;i++)
+                    {
+                        if(x.childNodes[i].nodeType==1)
+                        {
+                            console.log(x.childNodes[i].nodeName)
+                           child(x.childNodes[i])
+                        }
+                    }
+                
+                }
+          
+       }
+       child(bo)
+   
+   </script>
+</body>
+</html>

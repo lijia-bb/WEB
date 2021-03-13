@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            name:"xiaoming"
+        }
+        console.log(obj)
+        var jsonStr=JSON.stringify(obj);/* 将对象转换成字符串 */
+        console.log(jsonStr)
+        var jsonobj=JSON.parse(jsonStr)
+        console.log(jsonobj)/* 将字符串转换成对象，格式要符合对象定义要有大括号 */
+    </script>
+</body>
+</html>

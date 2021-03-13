@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        // $.get("./js/a.json",function(res){
+        //         console.log(res);
+        // })
+        // $.get("./js/b.json",function(res){
+        //         console.log(res);
+        // })
+        // $.get("./js/c.json",function(res){
+        //         console.log(res);
+        // })
+        //回调地狱
+        // $.get("./js/a.json", function (res) {
+        //     console.log(res);
+        //     $.get("./js/b.json", function (res) {
+        //         console.log(res);
+        //         $.get("./js/c.json", function (res) {
+        //             console.log(res);
+        //         })
+
+        //     })
+        // })
+        
+
+            //保证顺序
+        // let promise =new Promise(function(resolve,reject){
+        //     setTimeout(function(){
+        //         console.log(1)
+        //         // resolve("hello")
+        //         reject()
+        //         console.log(promise)
+               
+        //     },2000)
+        // })
+        // console.log(promise)
+        // promise.then(function(res){/* resolve（）成功通知结束 then接受resolve成功返回结果          reject（） 错误通知报错 tcatch接受reject成功返回结果   */
+        //     console.log("成功咧",res)
+        // }).catch(function(){
+        //     console.log("失败咧")
+        // })
+        //     function getDate(url){
+        //       let promise=  new Promise (function(resolve,reject){
+        //             $.get(url,function(res){
+        //                 resolve(res)
+                       
+        //             })
+        //         })
+        //         return promise
+        //     }
+        //    let promise1= getDate("./js/a.json").then(function(res){
+        //             console.log(res);
+        //             return getDate("./js/b.json")
+        //     }).then(function(res){
+        //         console.log(res)
+        //         return getDate("./js/c.json")
+        //     }).then(function(res){
+        //         console.log(res)
+                
+        //     })
+        
+
+        // let promise =new Promise(function(resolve,reject){
+        //     setTimeout(function(){
+        //         reject()
+        //     },2000)
+        // })
+        // console.log(promise)
+        // promise.then(function(res){/* resolve（）成功通知结束 then接受resolve成功返回结果          reject（） 错误通知报错 tcatch接受reject成功返回结果   */
+        //     console.log(res)
+        // },function(){
+        //     console.log("失败咧")
+        // })
+
+        
+            //保证同步  
+
+        let promise=new Promise(function(resolve,reject){
+            $.get("./js/a.json",function(res){
+                console.log(res);
+                reject()
+                // resolve(res)
+            })
+        })
+        let promise2=new Promise(function(resolve,reject){
+            $.get("./js/b.json",function(res){
+                console.log(res);
+                resolve(res)
+            })
+        })
+        let promise3=new Promise(function(resolve,reject){
+            $.get("./js/c.json",function(res){
+                console.log(res);
+                resolve(res)
+            })
+        })
+        // Promise.all([promise,promise2,promise3]).then(function(res){
+        //     console.log(res,"成功")/* res数组 */
+        // })/* 全部执行成功之后 如果有一个失败则不执行该段函数*/
+
+        Promise.race([promise,promise2,promise3]).then(function(res){
+            console.log("com")/* res数组 */
+        }).catch(function(){
+            console.log("out");
+        })/* 显示那个失败了*/
+
+    </script>
+</body>
+
+</html>

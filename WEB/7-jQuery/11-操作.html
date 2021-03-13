@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div class="box">
+        <div class="div1">1</div>
+        <div class="div2">2</div>
+        <div class="div3">3</div>
+        <div class="div4">4</div>
+        <div class="div5">5</div>
+    </div>
+    <div class="div7">hello</div>
+    <script>
+        // $(".div3").after($(".div7"))/* 后面的在移动 */
+        // $(".div3").before($(".div7"))
+
+        $(".div3").insertBefore($(".div7"))/* 前面的在移动 */
+    </script>
+</body>
+</html>

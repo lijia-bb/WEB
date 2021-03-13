@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function collectDigit(s){
+            s.split();
+            for(j=0;j<s.length;j++ )
+            {
+            for(i=0;i<10;i++)/* parseint只能将数值显示原本形式 ,abc显示NaN*/
+            {
+                if(s[j]==i)
+                document.write(i);
+                
+            }
+            // isNaN(s[i])如果为数字返回flase
+            }
+        }
+        var n=window.prompt("输入需要鉴别的字符串");
+        collectDigit(n);
+
+        
+    </script>
+</body>
+</html>

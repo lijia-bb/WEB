@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+            width: 500px;
+            height: 200px;
+            background-color: red;
+           flex-grow: 1;
+        }
+        ul{
+            display: flex;
+            /* height: 1000px;
+            flex-direction: column;
+            justify-content: space-between; */
+            /* flex-wrap: wrap;
+           align-content: center; */
+            /* align-items: center; */
+            /* justify-content: center; */
+        }
+        li:nth-child(2n){
+            background-color: blue;
+        }
+        /* li:nth-child(1){
+            order: 10;
+        } */
+         li:nth-child(4){
+            flex-shrink: 5;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <!-- <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li> -->
+    </ul>
+</body>
+</html>

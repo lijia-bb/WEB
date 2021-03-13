@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in goods">
+                商品序号:{{index}} 商品名称：{{item.title}} 价格：{{item.price}} 数量：{{item.num}}
+            </li>
+            
+        </ul>
+        <!-- <ul>
+            <li v-for="(key,val,index) in obj">{{key}}:{{val}}  索引:{{index}}</li>
+        </ul> -->
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                obj:{
+                    username:"xiaoming",
+                    age:19,
+                    school:"heida"
+                },
+                goods:[
+                    {
+                        title:"衣服",
+                        price:100,
+                        num:50
+                    },
+                    {
+                        title:"裤子",
+                        price:100,
+                        num:50
+
+                },
+                {
+                        title:"衬衫",
+                        price:100,
+                        num:50
+
+                }
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            text-align: center;
+            margin: 0 auto;
+            border: 1px solid black;
+            
+        }
+        .top{
+            height: 50px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+        }
+        .class{
+            float: left;
+            width: 150px;
+        }
+        .context{
+            display: none;
+           
+        }
+        .active{
+            background-color: gray;
+            color: black;
+        }
+        .display{
+            display: block;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="top">
+            <div class="class">第一节课</div>
+            <div class="class">第二节课</div>
+            <div class="class">第三节课</div>
+        </div>
+        <div class="buttom">
+            <div id="one" class="context ">
+                <ul>
+                    <li>第一节课内容</li>
+                    <li>第二节课内容</li>
+                    <li>第三节课内容</li>
+                </ul>
+            </div>
+            <div id="two" class="context">
+                <ul>
+                    <li>第一节课内容</li>
+                    <li>第二节课内容</li>
+                    
+                </ul>
+            </div>
+            <div id="th" class="context">
+                <ul>
+                    <li>第三节课内容</li>
+                </ul>
+            </div>
+        </div>
+       
+    </div>
+    <script>
+        var Ocla=document.getElementsByClassName("top")[0].getElementsByClassName("class")
+        var Otext=document.getElementsByClassName("context")
+        console.log(Otext)
+        for(i=0;i<Ocla.length;i++)
+        {   
+            Ocla[i].index=i
+            Ocla[i].onmouseover=function ()
+            {
+            for(j=0;j<Ocla.length;j++){
+                // Ocla[j].style.backgroundColor="black"
+                // this.setAttribute("class","")
+                // Ocla[j].className=("")
+                Ocla[j].classList. remove("active")
+                Otext[j].classList.remove("display")   
+            }
+            Otext[this.index].classList.add("display")
+            // // for(j=0;j<Otext.length;j++){
+            // //     Otext[j].classList.remove("display")
+            // // }
+            // Otext[i].classList.add("display")
+            //  this.style.backgroundColor="blue"
+            // this.setAttribute("class","active")
+            // this.className="active"
+            this.classList.add("active")
+          
+            }
+        }
+    </script>
+    
+</body>
+</html>

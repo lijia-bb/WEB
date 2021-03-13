@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        select{
+            width: 200px;
+            height: 200px;
+        }
+        #add,#add-all{
+            width: 180px;
+            background-color: gray;
+            border: 1px solid gray;
+            margin-bottom: 2px;
+        }
+        #remove,#remove-all{
+            width: 180px;
+            background-color: gray;
+            border: 1px solid gray;
+            margin-bottom: 2px;
+        }
+        #box1,#box2{
+            float: left;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <select multiple="multiple"  name="" id="select1" >
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+            <option value="">4</option>
+            <!-- <div><span id="add"> 添加到左边</span> </div>
+            <div><span id="add-all"> 全部添加到左边</span> </div> -->
+        </select>
+        <div id="add" ><span> 添加到左边</span> </div>
+        <div id="add-all"><span > 全部添加到左边</span> </div>
+    </div>
+    <div id="box2">
+        <select multiple="multiple"  name="" id="select2" >
+            <option value="">5</option>
+            <option value="">6</option>
+            <option value="">7</option>
+            <option value="">8</option>
+            <!-- <div><span id="remove"> 添加到右边</span> </div>
+            <div><span id="remove-all"> 全部添加到右边</span> </div> -->
+        </select>
+        <div id="remove"><span > 添加到右边</span> </div>
+        <div id="remove-all"><span > 全部添加到右边</span> </div>
+    </div>
+   
+    <script>
+        var sp1=document.querySelector("#select1").querySelectorAll("option")
+        var sp2=document.querySelector("#select2").querySelectorAll("option")
+        var s2=document.querySelector("#select2")
+        var s1=document.querySelector("#select1")
+        var add=document.querySelector("#add")
+        var addall=document.querySelector("#add-all")
+        var remove=document.querySelector("#remove")
+        var removeall=document.querySelector("#remove-all")
+        var selectedDom=document.createDocumentFragment();
+        console.log(removeall)
+        // 左侧双击右移
+        
+        s1.ondblclick = function (){
+            // console.log(this.options[this.selectIndex])
+            // console.log(this.selectIndex)
+          s2.appendChild(this.options[this.selectedIndex])
+        }
+        // 右侧双击左移
+        s2.ondblclick = function (){
+            // console.log(this.options[this.selectIndex])
+            // console.log(this.selectIndex)
+          s1.appendChild(this.options[this.selectedIndex])
+        }
+        add.onclick = function (){
+            var j=0
+        var b= new Array
+               for(var i=0;i<s1.options.length;i++)
+               {
+                   
+                    if(s1.options[i].selected)
+                    {   
+                          b[j++]=s1.options[i]
+                        // selectedDom.appendChild(s1.options[i])
+                    }
+                   
+                }  
+                  // s2.appendChild(s1.options[i])
+                  for(var i=0;i<b.length;i++)
+                  {
+                      s2.appendChild(b[i])
+                  }
+        }
+        addall.onclick = function () {
+            var j=0
+        var b= new Array
+            for(var i=0;i<s1.options.length;i++)
+               {
+             
+                    if(!s1.options[i].selected)
+                    {   
+                          b[j++]=s1.options[i]
+                    }
+                   
+                }  
+                for(var i=0;i<b.length;i++)
+                  {
+                      s2.appendChild(b[i])
+                  }
+        }
+        remove.onclick = function (){
+            var j=0
+        var b= new Array
+               for(var i=0;i<s2.options.length;i++)
+               {
+                   
+                    if(s2.options[i].selected)
+                    {   
+                          b[j++]=s2.options[i]
+                    }
+                   
+                }  
+                  // s2.appendChild(s1.options[i])
+                  for(var i=0;i<b.length;i++)
+                  {
+                      s1.appendChild(b[i])
+                  }
+        }
+        removeall.onclick = function () {
+            var j=0
+            var b= new Array
+            for(var i=0;i<s2.options.length;i++)
+               {
+             
+                   
+                          b[j++]=s2.options[i]
+                  
+                   
+                }  
+                for(var i=0;i<b.length;i++)
+                  {
+                      s1.appendChild(b[i])
+                  }
+        }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // add.onclick = function () {
+        //     for(i=0;i<s1.options.length;i++)
+        //     {
+        //         console.log(s1.options[i].selected)
+        //         if(s1.options[i].selected)
+        //         {
+        //             s2.appendChild(s1.options[i])
+        //         }
+        //     }
+        // }
+        // 事件绑定固定的，不会绑定循环外部的条件
+        // for(i=0;i<sp1.length;i++)
+        // {
+        //     sp1[i].ondblclick = function(){
+        //         console.log("hah")
+        //         s2.appendChild(this)
+        //     }
+        // }
+        // for(i=0;i<sp2.length;i++)
+        // {
+        //     sp2[i].ondblclick = function(){
+        //         console.log("hah")
+        //         s1.appendChild(this)
+        //     }
+        // }
+    </script>
+</body>
+</html>

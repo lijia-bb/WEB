@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <!-- <input type="text" id="np"> -->
+    <!-- <select name="" id="sel1">
+        <option value="heida">黑大</option>
+        <option value="lida">利达</option>
+        <option value="nda">农大</option>
+    </select> -->
+
+    <!-- <form action="index.htmls" id="target">
+        <input type="text" value="hello there">
+        <input type="submit" value="go">
+    </form> -->
+
+    <textarea name="" id="text1" cols="30" rows="10"></textarea>
+    <script>
+        // $("#np").focus(function(){
+        //     console.log(123);
+        // })/* 触发焦点 */
+        // $("#np").blur(function(){
+        //     console.log("blur")
+        // })/* 失去焦点 */
+        // $("#sel1").change(function(){
+        //     console.log(this.value);
+        // })
+
+
+        // $("#target").submit(function(e){
+        //     console.log("submit");
+        //     e.preventDefault()/* 阻止默认行为 */
+        //     e.stopPropagation()/* 阻止冒泡 */
+        //     // return false /* 阻止默认行为和阻止后面行为发生 */
+        // })
+
+        $("text1").select(function(){
+            console.log("select");/* 当选中输入内容时触发该事件 */
+        })
+    </script>
+</body>
+</html>

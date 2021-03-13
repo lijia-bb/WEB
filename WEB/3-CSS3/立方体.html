@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: pink;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px dashed black;
+            margin: 100px auto;
+            position: relative;
+           transform-style: preserve-3d;
+           animation: foo 5s linear;
+           animation-iteration-count: infinite;
+        }
+        @keyframes foo {
+            from{
+               transform: rotateY(0deg);
+            }
+            to{
+               transform: rotateY(360deg);
+            }
+        }
+        .bo{
+            width: 200px;
+            height: 200px;
+            background-color:white;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.3;
+            line-height: 200px;
+            text-align: center;
+        }
+        .div1{
+            transform: translateZ(100px);
+        }
+        .div2{
+            transform: translateX(-100px) rotateY(-90deg);
+           transform-origin: center center ;
+        }
+        .div3{
+            transform: translateZ(-100px);
+        }
+        .div4{
+            transform: translateX(100px) rotateY(90deg);
+        }
+        .div5{
+            transform: translateY(-100px) rotateX(90deg);
+         
+        }
+        .div6{
+            transform: translateY(100px)  rotateX(90deg);
+            
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="bo div1">1</div>
+        <div class="bo div2">2</div>
+        <div class="bo div3">3</div>
+        <div class="bo div4">4</div>
+        <div class="bo div5">5</div>
+        <div class="bo div6">6</div>
+    </div>
+</body>
+</html>

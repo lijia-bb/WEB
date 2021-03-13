@@ -1,0 +1,22 @@
+.div1 {
+  color: blue;
+  width: 200px;
+  height: 200px;
+  background-image: url(http://127.0.0.1:8081/image/4e6a31c857af81c17e5799cde7372a12.jpg);
+}
+.div2{
+  color: red;
+}
+::-moz-placeholder{
+    color: pink;
+}
+:-ms-input-placeholder{
+    color: pink;
+}
+::placeholder{
+    color: pink;
+}
+
+.div2 {
+  color: blue; }
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+
+        var yea=window.prompt("请输入你要查找的年份");
+
+        if(((yea%4==0)&&(yea%100!==0))||yea %400==0)
+        {
+            document.write("今天"+yea+"是闰年");
+        }
+        else {
+        document.write("今天"+yea+"不是闰年");
+        }
+    </script>
+</body>
+</html>

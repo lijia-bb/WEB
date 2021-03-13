@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #big{
+            width: 600px;
+            /* height: 200px; */
+            border: 1px solid #999;
+        }
+        .top{
+            height: 400px;
+            text-align: center;
+            line-height: 401px;
+            
+        }
+        .buttom{
+            border-top: 1px solid #999;
+            height: 150px;
+         
+        }
+        .top img{
+            width: 300px;
+            height: 300px;
+            line-height: 400px;
+        }
+        li{
+            width: 180px;
+            float: left;
+            list-style: none;
+            border-right: 1px solid #999;
+            text-align: center;
+        }
+        #bb{
+            border-right: none;
+        }
+        li img{
+            width: 150px;
+            height: 100px;
+           
+        }
+
+    </style>
+</head>
+<body>
+    <div id="big">
+        <div class="top">
+            <img id="baby" src="image/狗.jpg" alt="">
+        </div>
+        <div class="buttom">
+            <ul>
+                <li>
+                    <img src="image/狗.jpg" alt="">
+                </li>
+                <li>
+                    <img src="image/狮子.jpg" alt="">
+                </li>
+                <li id="bb">
+                    <img src="image/草莓.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var bimg=document.getElementsByClassName("buttom")[0].getElementsByTagName("img")
+        var Oimag=document.getElementById("baby")
+        for(i=0;i<bimg.length;i++)
+        {
+            bimg[i].onmouseover=function (){
+                var get=this.getAttribute("src")
+                Oimag.setAttribute("src",get)
+            }
+        }
+    </script>
+</body>
+</html>

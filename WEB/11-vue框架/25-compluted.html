@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>firstName:{{firstName}}</h1>
+        <h1>lastName:{{lastName}}</h1>
+        <h1>fulltName:{{fullName2}}</h1>
+    </div>
+    
+    <script>
+       let app= new Vue({
+            //固定语法
+            el:"#app",/* 捕获元素 */
+            data:{/* 文本数据 */
+               firstName:"a",
+               lastName:"b",
+               
+            },
+            computed:{/* 监听多个值 多个值影响一个值 */
+                fullName2(){/* 计算属性 */
+                    return this.firstName+"-"+this.lastName
+                }
+            }
+        })
+      
+    </script>
+</body>
+</html>

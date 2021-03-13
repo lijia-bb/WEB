@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=4, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="box">
+        <li>
+            0
+        </li>
+    </ul>
+    <button>add</button>
+    <script>
+        var btn = document.querySelector("button")
+        var box=document.querySelector("#box")
+        var i=1
+        var body = document.querySelector("body")
+            btn.onclick =function (){
+            var newLi = document.createElement("li");
+            newLi.innerHTML=i++
+            box.appendChild(newLi)
+            }
+        
+        
+        
+        
+      </script>
+</body>
+</html>

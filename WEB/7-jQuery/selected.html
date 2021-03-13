@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        #s1,#s2{
+            height: 200px;
+            width: 200px;
+        }
+        #box{
+            margin: 0 auto;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <select name="" id="s1" multiple>
+            <option value="1">V1 </option>
+            <option value="2">V2 </option>
+            <option value="3">V3 </option>
+            <option value="4">V4 </option>
+            <option value="5">V5 </option>
+        </select>
+        <select name="" id="s2" multiple>
+            <option value="">V6 </option>
+            <option value="">V7 </option>
+            <option value="">V8 </option>
+            
+        </select>
+        <div>
+            <button id="pr">选中移动到右边</button>
+            <button id="pl">选中移动到左边边</button>
+        </div>
+        <div>
+            <button id="ar">全部移动到右边</button>
+            <button id="al">全部移动到左边边</button>
+        </div>
+    </div>
+   <script>
+       $("#ar").click(function(){
+            $("#s1 option").appendTo("#s2")
+       
+       })
+
+
+       $("#al").click(function(){
+            $("#s2 option").appendTo("#s1")
+       
+       })
+
+
+       $("#pr").click(function(){
+        $("#s1 option").each(function(key,val){
+            if(val.selected){
+                $(val).appendTo("#s2")
+            } 
+        })
+        })
+
+
+        $("#pl").click(function(){
+        $("#s2 option").each(function(key,val){
+            if(val.selected){
+                $(val).appendTo("#s1")
+            } 
+        })
+       })
+
+    //    $("#s1 option").dblclick(function(){
+    //     // $("#s1 option:selected").appendTo("#s2")
+    //     console.log(1);
+    //    })
+    $("#s1").on("dblclick","option",function(){
+        $(this).appendTo($("#s2"));
+    })
+    $("#s2").on("dblclick","option",function(){
+        $(this).appendTo($("#s1"));
+    })
+    // $("#s1 option").on("click",function(){
+    //     console.log(this);
+    // })
+    
+   </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        llllllllllll
+        <span></span>
+        hihdiahdiodhoiadhsaiodhioshoadh
+        <span></span>
+        shjshdjkhdsjkdhjskdjkd
+    </div>
+    <script>
+    //   var el=  $(".container").contents()
+    //   console.log(el);
+    $(".container").contents().filter(function(){
+        if(this.nodeType==3){
+        // console.log(this);
+        return true
+        }
+    }).wrap("<p></p>").end().filter("span").remove()
+    </script>
+</body>
+
+</html>

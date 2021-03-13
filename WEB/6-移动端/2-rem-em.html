@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title><!-- width：相当于移动端宽度，devide-width自动适配到不同宽度的移动端 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"> 
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            font-size: 30px;
+        }
+        .box{
+            font-size: 10px;
+            /* width: 100px; */
+            /* height: 10rem;  相对于html 高度为10*30 */
+            /* background-color: red; */
+        }
+        .box1{
+            width: 1em;/* 相对于父元素 1*10 */
+            height: 1rem;/* 相对于html （根元素） */
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1">
+
+        </div>
+    </div>
+</body>
+</html>

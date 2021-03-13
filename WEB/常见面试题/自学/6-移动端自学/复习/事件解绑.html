@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .box{
+                width:200px;
+                height: 200px;
+            }
+    </style>
+   
+</head>
+<body>
+   <div class="box">
+    hello
+   </div> 
+   <script>
+       var box= document.querySelector(".box")
+       var foo=function(){
+           console.log("hello")
+       }
+       box.addEventListener("click",function(){
+           console.log("hello")
+       })
+    //    box.addEventListener("click",function foo(){
+    //      console.log("woed")
+    //    })
+       box.addEventListener("click",foo)
+       box.removeEventListener("click",foo)
+   </script>
+</body>
+</html>

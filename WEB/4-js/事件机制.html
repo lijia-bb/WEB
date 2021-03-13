@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div3{
+            width: 600px;
+            height: 600px;
+            background-color: red;
+        }
+        .div2{
+            width: 400px;
+            height: 400px;
+            background-color: green;
+        }
+        .div1{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="div3">
+        <div class="div2">
+            <div class="div1">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var div1=document.querySelector(".div1")
+        var div2=document.querySelector(".div2")
+        var div3=document.querySelector(".div3")
+        // div1.onclick=function(){
+        //     console.log("div1")
+        // }
+        // div2.onclick=function(){
+        //     console.log("div2")
+        // }
+        // div3.onclick=function(){
+        //     console.log("div3")
+        // }
+        //事件机制 捕获阶段->目标阶段 ->冒泡阶段  先捕获在冒泡
+        // div1.addEventListener("onclick",function(){
+        //     console.log("div1")
+        // },ture/* 捕获 */) /* flase为冒泡 */
+        // div2.addEventListener("onclick",function(e){
+           
+        //     console.log("div2")
+        // },ture/* 捕获 */)
+        // div3.addEventListener("onclick",function(){
+        //     console.log("div3")
+        // },ture/* 捕获 */)
+
+        
+        div1.addEventListener("click",function(e){
+            console.log("div1")
+            e.preventDefault();/* 阻止默认行为 */
+        },false/* 冒泡 */) /* flase为冒泡 */
+        div2.addEventListener("click",function(e){
+            e.stopPropagation();/* 阻止冒泡 */
+            
+            console.log("div2")
+        },false/* 冒泡 */)
+        div3.addEventListener("click",function(){
+            console.log("div3")
+        },false/* 冒泡 */)
+    </script>
+</body>
+</html>

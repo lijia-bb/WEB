@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var time=new Date();
+        time.setDate(time.getDate()+2)
+        var tim2=new Date();
+        tim2.setDate(tim2.getDate()-1)
+        // 设置cookie/* 生命周期 设置过期时间 */
+        function setCookie(key,val,timer){
+            document.cookie=key+"="+val+";"+"expires="+timer.toUTCString();
+          console.log(document.cookie)
+        }
+
+        // 获取cookie
+        function getCookie(key){
+            var all=document.cookie.trim()
+            var start=all.indexOf(key)+key.length+1
+            var aR=all.split("");
+            var bR=Array()
+            cR=Array()
+            var j=0
+                for(i=start;i<all.length;i++)
+            {
+                if(aR[i]!=";")
+                {
+                    bR[j++]=aR[i]
+                }
+                else
+                {
+                    break;
+                }
+               
+            }
+            console.log(bR.join(""))
+            cR=bR
+        }
+        //删除cookie
+        function delCookie(key){
+            getCookie(key)
+            setCookie(key,cR.join(""),tim2)
+           
+        }
+        setCookie("lijia","lijia",time)
+        getCookie("lijia")
+        delCookie("zhu")
+    </script>
+</body>
+</html>

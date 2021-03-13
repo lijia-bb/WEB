@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .long1,.long2,.long3{
+            background-color: gray;
+            height: 100px;
+            margin-top:5px;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+   <div class="long1"></div>
+   <div class="long2"></div>
+   <div class="long3"></div>
+   <script>
+       //正常执行
+       let num=1
+        let long1 =document.querySelector(".long1")
+        function count(){
+            this.innerHTML=num++
+        }
+      long1.onmousemove=count;
+      //防抖  n秒内函数只执行一次，如果在n秒内又触发了时间，则会重新计算函数执行时间
+       //    let i=0,j=0
+    //    var time=new Date()
+    //    let alo=document.querySelector(".long")  
+    //         alo.onmousemove=function(){
+    //             i++
+    //         }
+    //        setInterval(function(){
+    //            if(i<20&&i>=1)
+    //            {
+    //                console.log("hello",i)
+    //                 alo.innerHTML=j++
+                    
+    //            }
+    //            else{
+    //                console.log(i);
+                 
+    //            }
+    //            i=0
+    //        },500)
+    let num2=1
+    let long2 =document.querySelector(".long2")
+    function count2(){
+        this.innerHTML=num2++
+    }
+    function debouce(count,time){
+        let timer=null;
+       
+        return function(){
+            let that=this
+           if(timer){
+                clearTimeout(timer)
+           }
+          
+            timer=setTimeout(function(){
+                count.call(that)
+            },time)
+        }
+           
+      }
+     long2.onmousemove=debouce(count2,1000)
+
+     //节流 连续触发事件在n秒中只执行一次函数
+     let num3=1
+    let long3 =document.querySelector(".long3")
+    function count3(){
+        this.innerHTML=num3++
+    }
+    function throttle(fn,time){
+      let  timer=null
+            return function(){
+                let that=this
+                if(!timer){
+
+                timer = setTimeout(function(){
+                    timer=null
+                    fn.call(that)
+                },time)
+            }
+            }
+    }
+    long3.onmousemove=throttle(count3,1000)
+   </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <span id="s">hell</span>
+    <div id="d">
+
+    </div>
+
+    <!-- <ul id="ol">
+        <li id="l1">1</li>
+        <li id="l2">2</li>
+        <li id="l3">3</li>
+        <li id="l4">4</li>
+        <li id="l5">5</li>
+    </ul> -->
+    <script>
+        // var s=document.getElementById("s")
+        // var d=document.getElementById("d")
+        // d.appendChild(s)
+
+        // $("#d").append($("#s"))/* 移动 */
+        $("#s").clone().appendTo("#d") /* 复制 */
+        // $("#d").appendTo($("#s"))/* 位置颠倒 */
+
+        // var oul=document.getElementById("ol")
+        // var ol3=document.getElementById("l3")
+        // var ol4=document.getElementById("l4")
+        // console.log(oul,ol3,ol4);
+        // oul.insertBefore(ol4,ol3)
+
+        // $("ul").prepend($("#l5"))
+    </script>
+</body>
+</html>

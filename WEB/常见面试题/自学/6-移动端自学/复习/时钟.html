@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            border: 1px dashed black;
+            margin: 0 auto;
+        }
+        .yuan{
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            border-radius: 200px;
+            position: relative;
+            transform: rotate(180deg);
+        }
+        .yuan li
+        {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(0,-50%);
+            width: 3px;
+          
+           list-style:none;
+           background-color: black;
+           transform-origin: 0 200px;
+        }
+        .second,.minute,.hour{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* transform: rotate(180deg); */
+            transform-origin:top center;
+        }
+        .second{
+            width: 3px;
+            height: 180px;
+            background-color: green;
+        }
+        .minute{
+            width: 3px;
+            height: 80px;
+            background-color:yellow;
+        }
+        .hour{
+            width: 3px;
+            height: 50px;
+            background-color:pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" >
+        <div class="yuan">
+                <ul class="uL"  style="transform: rotate();">
+
+                </ul>
+                <div class="second"></div>
+                <div class="minute"></div>
+                <div class="hour"></div>
+        </div>
+    </div>
+    <script>
+        var uL =document.querySelector("uL")
+        var second=document.querySelector(".second")
+        var minute=document.querySelector(".minute")
+        var hour=document.querySelector(".hour")
+        var b=new Array();
+        var str=""
+        for(var i=0;i<60;i++)
+        {
+            if(i%5==0)
+            {
+                str+="<li  style='height:"+15+"px; transform:rotate("+i*6+"deg);'></li>"  
+            }
+            else{
+                str+="<li style='height:"+10+"px; transform:rotate("+i*6+"deg);'></li>"   
+            }
+           
+           
+        }
+        uL.innerHTML=str
+        setInterval (function(){
+            var timer=new Date();
+            var nowsecond=timer.getSeconds()
+            second.style.transform="rotate("+nowsecond*6.5+"deg)"
+            var nowminute=timer.getMinutes()
+            minute.style.transform="rotate("+nowminute*6+"deg)"
+            var nowhour=timer.getHours()
+            hour.style.transform="rotate("+nowhour*30+"deg)"
+        },1000)
+        // uL.style.transform=rotate()
+    </script>
+</body>
+</html>

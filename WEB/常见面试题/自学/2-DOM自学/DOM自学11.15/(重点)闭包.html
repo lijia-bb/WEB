@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function foo(){
+        //     /* 内部函数可以引用外部函数的变量，引用以后就被释放 */
+        //     var str="hello"
+        //     function foo2(){
+        //         console.log(str)
+        //     }
+        //     foo2()
+        // }
+        // foo();
+
+
+
+        // function f1(){
+        //     var n=999;
+        //     function f2(){
+        //         alert(n)
+        //     }
+        //     return f2;
+        // }
+        // var result = f1()
+        // result();/* 执行f1()n会被释放，但是f2()内部函数引用时，不会被销毁 */
+        // result();/* 可被多次引用 */
+        // console.log(result)/* f1返回f2 result()相当于f2() */
+
+
+
+        // function foo(){
+        //     console.log(foo)
+        // }
+        // console.log(foo)/* 输出函数体 */
+
+        // function f1(){/* 容易造成内存溢出 */
+        //     var n=999
+        //     nAdd=function(){n+=1}
+        //     function f2(){
+        //         alert(n)
+        //     }/* 全局函数 */
+        //     return f2;
+        // }
+        // var result = f1();
+        // result();
+        // nAdd();
+        // result();
+
+
+        var name= "the window";
+        var object = {/* 定义一个对象 */
+            name : "my object",
+            getNameFunc : function () {
+                // console.log(this.name)
+                return function () {
+                    return this.name;
+                };
+            }
+        };
+        // object.getNameFunc();/* 选取最近 */
+        alert(object.getNameFunc()());
+        // /* 相当于 */ 
+        // var a= object.getNameFunc()
+        // window.a();
+
+
+        // var name= "the window";
+        // var object = {/* 定义一个对象 */
+        //     name : "my object",
+        //     getNameFunc : function () {
+        //         var that= this  /* 定义了内部的事件 */
+        //         return function () {
+        //             return that.name;
+        //         };
+        //     }
+        // };
+        // alert(object.getNameFunc()());
+        // // 输出 my object
+        // obj.showName()();
+        // $("#div").click(function(){
+        //     this
+        // })
+
+        // function foo(){
+        //     console.log(this)/*  */
+        // }
+        // foo()/* 输出window，window调用 */
+
+
+
+        // function foo(){
+        //     return function(){ console.log("hello")/*  */
+        //     }
+        // }
+        // foo()/* 啥也不显示 */
+        // foo()()/* 显示hello */
+    </script>
+</body>
+</html>

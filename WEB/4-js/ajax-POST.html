@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./ajax-post.js"></script>
+</head>
+<body>
+    <input type="text "  placeholder="请输入值" class="Text">
+    <button class="btn">提交</button>
+    <ul class="ol"></ul>
+    <script>
+        var otxt=document.querySelector(".Text")
+        var obt=document.querySelector(".btn")
+        var oul=document.querySelector(".ol")
+        obt.onclick=function(){
+            ajaxPost( "http://47.92.82.13:4000/insertOneLevel",{levelname: otxt.value},function fun(res){
+                oul.innerHTML=""
+                get()
+            })
+        }
+        function get(){
+            ajaxGet("http://47.92.82.13:4000/showLevel",function fun(res){
+                
+            for(var i=res.data.length-1;i>=0;i--)
+            {
+                
+                oul.innerHTML+="<li>"+res.data[i].levelname+"</li>"
+            }
+        })
+        }
+        get()
+    </script>
+</body>
+</html>

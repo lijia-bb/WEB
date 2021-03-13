@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <mytest>
+            <!-- <div slot="slot1">
+                世界
+            </div>
+            <div slot="slot2">
+                你好 -->
+                <template v-slot:slot1>
+                    <div>
+                        <h1>Slot</h1>
+                    </div>
+                </template>
+                <template v-slot:slot2>
+                    <div>
+                        <h1>Slot2</h1>
+                    </div>
+                </template>
+            </div>
+        </mytest>
+    </div>
+    <template id="tem">
+        <div>
+            <slot name="slot2"></slot>
+            <h1>hello</h1>
+            <slot name="slot1"></slot><!--插槽 穿插其他元素 -->
+        </div>
+    </template>
+    <script>
+        new Vue({
+            el:"#app",
+            date:{
+
+            },
+            components:{
+                mytest:{
+                    template:"#tem"
+                      
+                }
+            }
+        })
+    </script>
+</body>
+</html>
